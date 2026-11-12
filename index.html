@@ -1,0 +1,358 @@
+<!DOCTYPE html><html lang="pt-BR"><head><script data-kl-inline="kl-route-normalize.js">/* Old campaign links keep their model and attribution on the dedicated page. */
+(function (root, factory) {
+  'use strict';
+  var api = factory();
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  if (root) {
+    var next = api.destination(root.location.href);
+    if (next) root.location.replace(next);
+  }
+}(typeof window === 'undefined' ? null : window, function () {
+  'use strict';
+  function destination(href) {
+    try {
+      var url = new URL(href);
+      if (!/^https?:$/.test(url.protocol)) return null;
+      if (!/^\/(?:catalogo(?:\/|\.html)?|catalogo\/index\.html)$/.test(url.pathname)
+          || url.searchParams.get('prova') !== '1') return null;
+      url.pathname = '/prova-virtual/';
+      url.searchParams.delete('prova');
+      return url.href;
+    } catch (_) { return null; }
+  }
+  return { destination: destination };
+}));
+</script><script src="/kl-urls.js"></script><base href="/"><meta charset="utf-8"><script src="/kl-ga.js?v=1"></script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1720591949105146');fbq('track','PageView');
+</script>
+<!-- End Meta Pixel Code -->
+<meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/img/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png"><link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16.png"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png"><title>Vestidos de noiva e festa em Niterói e Barra | Koisa Linda</title><meta property="og:locale" content="pt_BR"><meta property="og:type" content="website"><meta property="og:site_name" content="Koisa Linda"><style>
+:root{
+ --ruby:#722F37;--ruby-dark:#5a242b;--baunilha:#F4E5C4;--cream:#FBF7EF;--paper:#fff;
+ --ink:#2c2326;--muted:#9a8d80;--line:#e9e0d2;--gold:#C89F3C;--murta:#557361;--murta-deep:#476252;
+ --serif:'Playfair Display',Georgia,serif;--body:'Arapey',Georgia,serif;--sans:'Questrial',sans-serif;--kl-tap-target:48px;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--body);color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}img{display:block}
+a:focus-visible,button:focus-visible{outline:3px solid var(--ruby);outline-offset:4px;border-radius:4px}
+.btn-pri{display:inline-flex;align-items:center;justify-content:center;min-height:48px;background:var(--ruby);color:#fff;font-family:var(--sans);font-size:14px;letter-spacing:2px;text-transform:uppercase;padding:12px 30px;border-radius:30px;border:1px solid var(--ruby);transition:.18s;cursor:pointer}
+.btn-pri:hover{background:var(--ruby-dark);letter-spacing:2.6px}
+.btn-out{display:inline-flex;align-items:center;justify-content:center;min-height:48px;background:transparent;color:var(--ruby);font-family:var(--sans);font-size:14px;letter-spacing:2px;text-transform:uppercase;padding:12px 30px;border-radius:30px;border:1px solid var(--ruby);transition:.18s;cursor:pointer}
+.btn-out:hover{background:var(--ruby);color:#fff}
+.eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:6px;text-transform:uppercase;color:var(--gold)}.eyebrow::before{content:"";display:inline-block;width:30px;height:1px;background:var(--gold);vertical-align:middle;margin-right:12px;margin-bottom:3px}
+.sec-title{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(40px,5.6vw,60px);color:var(--ruby);line-height:1.0;letter-spacing:-1px;text-wrap:balance}
+.rule{width:54px;height:1px;background:var(--gold);margin:18px auto}
+/* HEADER */
+header{position:sticky;top:0;z-index:50;background:rgba(251,247,239,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{max-width:1320px;margin:0 auto;padding:12px 32px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px}.logo img{height:46px}.logo .sym{height:42px;width:auto}
+.logo .wm{font-family:var(--serif);font-weight:600;font-size:19px;letter-spacing:6px;color:var(--ruby);line-height:1}
+.logo .wm small{display:block;font-family:var(--sans);font-size:8.5px;letter-spacing:4px;color:var(--muted);margin-top:3px}
+.menu{display:flex;gap:30px;margin-left:auto;font-family:var(--sans);font-size:13.5px;letter-spacing:1.5px;text-transform:uppercase;color:#5f534b}
+.menu a{position:relative;padding:4px 0;transition:.15s}.menu a:hover{color:var(--ruby)}
+.menu a.cur{color:var(--ruby)}.menu a.cur::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--gold)}
+.ig-btn{display:inline-flex;align-items:center;gap:7px;margin-left:16px;color:#5f534b;font-family:var(--sans);font-size:12.5px;letter-spacing:1px;text-transform:uppercase;padding:9px 15px;border:1px solid var(--line);border-radius:999px;min-height:44px;transition:.15s}
+.ig-btn:hover{color:var(--ruby);border-color:var(--ruby)}.ig-btn svg{flex-shrink:0}
+@media(max-width:860px){.menu{margin-left:0}.ig-btn{margin-left:auto;margin-right:6px;padding:9px 11px}.ig-btn span{display:none}}
+/* FOOTER */
+footer{background:var(--ruby);color:#e9d9bd;padding:56px 32px 34px;text-align:center}footer .fverse{font-family:var(--serif);font-style:italic;font-size:15px;color:rgba(244,229,196,.72);max-width:34ch;margin:24px auto 4px;line-height:1.5}footer .fverse cite{display:block;font-family:var(--sans);font-style:normal;font-size:9.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-top:8px}
+footer .fimg{height:60px;margin:0 auto 14px;opacity:.95}
+.fbrand{font-family:var(--serif);font-size:14px;letter-spacing:7px;margin-bottom:6px}
+.fphrase{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--baunilha);margin:6px auto 22px;max-width:520px}
+.funits{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;font-family:var(--sans);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;opacity:.92;margin-bottom:18px}
+.fsoc{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;font-family:var(--sans);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px}
+.fsoc a:hover{color:#fff}
+footer a:focus-visible,.band a:focus-visible,.kl-sticky-cta a:focus-visible,.kl-sticky-cta button:focus-visible{outline-color:#fff}
+footer small{display:block;opacity:.55;font-family:var(--sans);font-size:10.5px;letter-spacing:1.2px;line-height:1.8}
+/* HERO */
+.hero.hero-editorial{display:grid;grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);grid-template-areas:"copy media";min-height:clamp(620px,calc(100svh - 71px),860px);overflow:hidden;background:var(--cream);text-align:left;isolation:isolate}
+.hero-copy{grid-area:copy;min-width:0;padding:clamp(56px,7vw,112px) clamp(32px,6vw,96px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.hero-copy .eyebrow{color:var(--gold)}
+.hero-copy h1{max-width:620px;margin:18px 0 20px;font-family:var(--serif);font-size:clamp(52px,5.2vw,84px);font-style:italic;font-weight:400;letter-spacing:-1.8px;line-height:.96;color:var(--ruby);text-shadow:none}
+.hero-copy p{max-width:540px;margin:0 0 30px;font-family:var(--body);font-size:clamp(18px,1.6vw,22px);line-height:1.55;color:#5f534b;opacity:1}
+.hero-copy .cta{display:flex;gap:14px;justify-content:flex-start;flex-wrap:wrap}
+.hero-copy .btn-out{color:var(--ruby);border-color:var(--ruby)}
+.hero-media{grid-area:media;position:relative;min-width:0;overflow:hidden;background:#eadbc5}
+.hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;transform:scale(1.001)}
+.hero-media::after{content:"";position:absolute;inset:0;z-index:1;background:var(--ruby);pointer-events:none;transform:translateX(101%)}
+@media(max-width:680px){
+ .hero.hero-editorial{grid-template-columns:1fr;grid-template-areas:"media" "copy";min-height:0;height:auto}
+ .hero-media{min-height:0;aspect-ratio:2/3}
+ .hero-copy{padding:48px 22px 58px}
+ .hero-copy h1{font-size:clamp(44px,14vw,60px);letter-spacing:-1.2px}
+ .hero-copy p{font-size:18px}
+ .hero-copy .cta{width:100%;flex-direction:column}
+ .hero-copy .btn-pri,.hero-copy .btn-out{width:100%}
+}
+@media(max-width:860px){
+ .mtog,.mnav a,.ig-btn,.btn-pri,.btn-out,.mini,.mini-cta,.fsoc a{min-height:var(--kl-tap-target)}
+ .mini,.mini-cta,.fsoc a{display:inline-flex;align-items:center;justify-content:center}
+}
+/* PAGE HERO (menor) */
+.phero{text-align:center;padding:66px 28px 26px;max-width:760px;margin:0 auto}
+.phero h1{font-family:var(--serif);font-style:italic;font-weight:500;font-size:54px;color:var(--ink);margin:14px 0 6px}
+.phero p{font-family:var(--body);font-size:18px;color:#6f6258;max-width:560px;margin:6px auto 0}
+.wrap{max-width:1320px;margin:0 auto;padding:30px 32px}
+.section{padding:60px 32px}.section.alt{background:var(--paper)}
+.center{text-align:center}
+/* TRILHOS POR INTENÇÃO */
+.intent-head{max-width:720px;margin:0 auto}.intent-head p{font-family:var(--body);font-size:18px;color:#6f6258;margin:14px auto 0;line-height:1.6}
+.cols{max-width:1320px;margin:36px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;text-align:left}
+.col{position:relative;min-height:500px;overflow:hidden;border-radius:10px;display:flex;align-items:flex-end;background:#2b1c1f;box-shadow:0 16px 38px rgba(44,35,38,.10);isolation:isolate}
+.col img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.55s;z-index:-2}.col:hover img{transform:scale(1.045)}
+.col::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,14,12,.08) 18%,rgba(20,14,12,.38) 54%,rgba(20,14,12,.86));z-index:-1}
+.col .ov{display:block;width:100%;padding:26px;color:#fff}.col .ov small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:2.2px;text-transform:uppercase;color:var(--baunilha);margin-bottom:8px}.col .ov span{display:block;font-family:var(--serif);font-style:italic;font-weight:400;font-size:32px;letter-spacing:-.3px;line-height:1.02}.col .ov p{font-family:var(--body);font-size:16.5px;line-height:1.45;margin:10px 0 18px;color:rgba(255,255,255,.86)}.col .mini-cta{display:inline-flex;align-items:center;gap:8px;min-height:46px;font-family:var(--sans);font-size:12px;letter-spacing:1.6px;text-transform:uppercase;border:1px solid rgba(255,255,255,.6);border-radius:999px;padding:12px 20px;background:rgba(255,255,255,.12);backdrop-filter:blur(4px)}.col:hover .mini-cta{background:#fff;color:var(--ruby)}
+/* SOBRE split */
+.split{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+.split img{width:100%;border-radius:4px;aspect-ratio:4/5;object-fit:cover}
+.split .tx p{font-family:var(--body);font-size:17.5px;color:#5f534b;margin-top:16px;line-height:1.65}
+/* SERVICES */
+.svcs{max-width:1180px;margin:36px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.svc{background:var(--cream);border:1px solid var(--line);border-radius:4px;padding:30px 26px;text-align:center}
+.svc h3{font-family:var(--serif);font-size:25px;color:var(--ruby);margin-bottom:10px}
+.svc p{font-family:var(--body);font-size:16px;color:#6f6258}
+.svc .ic{font-size:26px;color:var(--gold);margin-bottom:12px}
+/* UNIDADES */
+.units{max-width:1200px;margin:36px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.unit{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:30px 28px;text-align:center}
+.unit h3{font-family:var(--serif);font-size:27px;color:var(--ink);margin-bottom:4px}
+.unit .city{font-family:var(--sans);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.unit p{font-family:var(--body);font-size:16px;color:#6f6258;margin-bottom:6px}
+.unit .hr{font-family:var(--sans);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin:12px 0 18px}
+.unit .acts{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.unit .mini{font-family:var(--sans);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:9px 16px;border-radius:30px;border:1px solid var(--ruby);color:var(--ruby);transition:.15s}
+.unit .mini.fill{background:var(--ruby);color:#fff}.unit .mini:hover{background:var(--ruby);color:#fff}
+/* CTA band */
+.band{background:var(--murta);color:#f0e2c8;text-align:center;padding:64px 28px}
+.band h2{font-family:var(--serif);font-style:italic;font-size:40px;color:var(--baunilha);margin-bottom:10px}
+.band p{font-family:var(--body);font-size:17px;opacity:.9;margin-bottom:24px}
+.band .btn-pri{background:var(--baunilha);color:var(--ruby);border-color:var(--baunilha)}.band .btn-pri:hover{background:var(--cream)}.band .btn-out{color:var(--baunilha);border-color:rgba(244,229,196,.72)}.band .btn-out:hover{background:var(--baunilha);color:var(--ruby)}
+.band-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.band-sec{margin-top:16px}.band-sec a{color:var(--baunilha);text-decoration:underline;font-family:var(--sans);font-size:15px;letter-spacing:1px}
+
+/* nossas lojas — fotos reais */
+.lojas-duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;max-width:940px;margin:34px auto 0}
+.loja-card{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;padding-bottom:26px;text-align:center}
+.loja-card img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.loja-card h3{font-family:var(--serif);font-size:26px;color:var(--ink);margin:20px 16px 4px}
+.loja-card .city{font-family:var(--sans);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin:0 16px 12px}
+.loja-card p{font-family:var(--body);font-size:16.5px;color:#5f534b;line-height:1.55;margin:0 16px 18px}
+.loja-card .acts{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:0 16px}
+@media(max-width:760px){.lojas-duo{grid-template-columns:1fr;max-width:440px}}
+/* faixa de serviços em linha (home enxuta) */
+.mini-svcs{display:flex;gap:18px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:22px;font-family:var(--sans);font-size:13px;letter-spacing:1.6px;text-transform:uppercase;color:#6f6258}
+.mini-svcs i{width:4px;height:4px;border-radius:50%;background:var(--gold)}
+/* PROVA VIRTUAL — passos, sem foto */.tryon-steps{display:flex;flex-direction:column;gap:14px;justify-content:center}.tryon-steps .tst{display:grid;grid-template-columns:auto 1fr;column-gap:16px;row-gap:2px;align-items:baseline;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:18px 20px;box-shadow:0 8px 26px rgba(90,36,43,.05)}.tryon-steps .tsn{grid-row:1/3;font-family:var(--serif);font-size:30px;color:var(--gold);line-height:1;align-self:center}.tryon-steps .tsb{font-family:var(--serif);font-size:21px;color:var(--ink);line-height:1.2}.tryon-steps .tsd{font-family:var(--body);font-size:15.5px;color:#6f6258;line-height:1.45}@media(max-width:860px){.tryon-steps{gap:10px}.tryon-steps .tst{padding:15px 16px}.tryon-steps .tsn{font-size:26px}.tryon-steps .tsb{font-size:19px}}
+
+.clientes{max-width:1200px;margin:34px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.cli{overflow:hidden;border-radius:4px;aspect-ratio:3/4;background:var(--baunilha)}
+.cli.wide{grid-column:span 2;aspect-ratio:3/2}
+.cli img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.cli:hover img{transform:scale(1.05)}
+@media(max-width:1100px){.cols{grid-template-columns:repeat(2,1fr)}.col{min-height:380px}}
+@media(max-width:860px){.clientes{grid-template-columns:repeat(2,1fr)}.menu{display:none}.cols{grid-template-columns:1fr}.col{min-height:360px}.split{grid-template-columns:1fr}.svcs,.units{grid-template-columns:1fr}.phero h1{font-size:38px}.logo .wm{display:none}.logo .sym{height:34px}.section{padding-top:58px;padding-bottom:58px}.intent-head{margin-bottom:22px}.sec-title{font-size:34px}.cols{gap:18px}.svcs,.units{gap:18px}}
+
+/* PACOTES & ACESSÓRIOS */
+.section.pacotes{background:linear-gradient(180deg,#fbf3e3 0%,#f6ead2 100%)}
+.pkgs{max-width:1120px;margin:38px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+.pkg{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:34px 28px 30px;text-align:center;display:flex;flex-direction:column;position:relative;transition:.2s;box-shadow:0 8px 30px rgba(90,36,43,.05)}
+.pkg:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(90,36,43,.12)}
+.pkg .tier{font-family:var(--sans);font-size:11px;letter-spacing:4px;text-transform:uppercase;padding:6px 16px;border-radius:30px;display:inline-block;margin:0 auto}
+.pkg.prata .tier{background:#eef0f2;color:#8a8f98;border:1px solid #d9dde2}
+.pkg.ouro .tier{background:#f7eed9;color:var(--gold);border:1px solid #e7d3a8}
+.pkg .name{font-family:var(--serif);font-style:italic;font-size:30px;color:var(--ink);margin:18px 0 4px;line-height:1}
+.pkg .price{font-family:var(--serif);font-size:34px;color:var(--ruby);margin:6px 0 2px}
+.pkg .price small{font-family:var(--sans);font-size:12px;letter-spacing:1px;color:var(--muted);display:block;text-transform:uppercase;margin-top:2px}
+.pkg ul{list-style:none;margin:22px 0 26px;padding:0;text-align:left;flex:1}
+.pkg li{font-family:var(--body);font-size:17px;color:#5f534b;padding:9px 0 9px 26px;position:relative;border-bottom:1px solid #f0e8da}
+.pkg li:last-child{border-bottom:none}
+.pkg li::before{content:"";position:absolute;left:2px;top:15px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.pkg .btn-out,.pkg .btn-pri{width:100%}
+.pkg.featured{background:var(--ruby);border-color:var(--ruby);box-shadow:0 18px 44px rgba(90,36,43,.28)}
+.pkg.featured .tier{background:rgba(255,255,255,.16);color:var(--baunilha);border:1px solid rgba(244,229,196,.35)}
+.pkg.featured .name{color:#fff}
+.pkg.featured .price{color:var(--baunilha)}
+.pkg.featured .price small{color:rgba(244,229,196,.7)}
+.pkg.featured li{color:#f1e2d8;border-bottom-color:rgba(244,229,196,.18)}
+.pkg.featured li::before{background:var(--baunilha)}
+.pkg.featured .btn-out{color:#fff;border-color:rgba(255,255,255,.6)}
+.pkg.featured .btn-out:hover{background:#fff;color:var(--ruby)}
+.pkg .flag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-family:var(--sans);font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:5px 16px;border-radius:30px;white-space:nowrap}
+.pkg-note{font-family:var(--sans);font-size:12px;letter-spacing:1px;color:var(--muted);margin-top:30px;text-transform:uppercase}
+@media(max-width:860px){.pkgs{grid-template-columns:1fr;max-width:420px}}
+
+.mtog{display:none;align-items:center;gap:9px;background:none;border:0;cursor:pointer;padding:8px 10px;margin:-4px;min-height:48px}.mtog .bars{display:inline-block}.mtog .bars span{display:block;width:24px;height:2px;background:#2c2326;margin:5px 0;transition:.25s}.mtog-lbl{font-family:var(--sans);font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#5f534b;font-weight:normal}.mnav{display:none;position:absolute;top:100%;left:0;right:0;background:#FBF7EF;border-bottom:1px solid var(--line);box-shadow:0 14px 30px rgba(44,35,38,.08);flex-direction:column;padding:4px 32px 16px}.mnav a{padding:16px 0;border-bottom:1px solid var(--line);font-family:var(--sans);font-size:15px;letter-spacing:2px;text-transform:uppercase;color:#2c2326}.mnav a:last-child{border-bottom:0}.mnav a.cur{color:#722F37}body.mopen .mnav{display:flex}body.mopen .mtog .bars span:nth-child(1){transform:translateY(7px) rotate(45deg)}body.mopen .mtog .bars span:nth-child(2){opacity:0}body.mopen .mtog .bars span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}@media(max-width:860px){.mtog{display:flex}}[id]{scroll-margin-top:86px}.kl-depo{max-width:1120px;margin:0 auto}.kl-depo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:38px;text-align:left}.kl-quote{margin:0;padding:28px 28px 24px;background:var(--paper);border:1px solid var(--line);border-radius:16px;display:flex;flex-direction:column}.kl-quote:before{content:"\201C";font-family:var(--serif);font-size:52px;line-height:.55;color:var(--gold);opacity:.42;margin-bottom:6px}.kl-quote blockquote{margin:0;padding:0;border:0;flex:1}.kl-quote blockquote p{font-family:var(--serif);font-style:italic;font-weight:400;font-size:19px;line-height:1.6;color:#3a312d;margin:0 0 18px}.kl-quote figcaption{padding-top:14px;border-top:1px solid var(--line)}.kl-quote cite{display:block;font-style:normal;font-family:var(--sans);font-size:12.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--ruby)}.kl-quote .kl-qmeta{display:block;margin-top:4px;font-family:var(--sans);font-size:11.5px;letter-spacing:1px;color:var(--muted)}.kl-depo-note{margin-top:30px;font-family:var(--sans);font-size:12px;letter-spacing:1px;color:var(--muted)}.kl-depo-note a{color:var(--ruby);border-bottom:1px solid var(--baunilha);padding-bottom:1px}@media(max-width:860px){.kl-depo-grid{grid-template-columns:1fr;gap:16px;margin-top:28px}.kl-quote{padding:24px 22px 20px}.kl-quote blockquote p{font-size:18px}}</style>
+<style id="kl-editorial">
+/* Curadoria: ElevenLabs (warm editorial) + Claude (serif 400 tracking-) + Mastercard (respiro) + Tesla (galeria) */
+.hero h1{font-weight:400;letter-spacing:-1px}
+.sec-title{font-weight:400;letter-spacing:-.5px;line-height:1.08}
+.phero h1{font-weight:400;letter-spacing:-.6px}
+.band h2{font-weight:400;letter-spacing:-.4px}
+.pkg .name{font-weight:400}
+.section{padding-top:88px;padding-bottom:88px}
+.rule{margin-top:26px;margin-bottom:26px}
+.pkg{box-shadow:none;border:1px solid var(--line)}
+.pkg:hover{transform:translateY(-3px);box-shadow:none;border-color:#e2d6c2}
+.pkg.ouro{border-color:#e7d3a8}
+.cols{gap:28px}
+.clientes{gap:20px}
+.svcs{gap:30px}
+.units{gap:30px}
+</style>
+<script defer src="/kl-tracking.js?v=20261013funil1"></script><link rel="stylesheet" href="/kl-site-enhance.css?v=20260827mobilehero6"><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://koisalinda.com.br/#organization", "name": "Koisa Linda", "alternateName": ["Grupo Koisa Linda", "Koisa Linda Noivas"], "url": "https://koisalinda.com.br/", "logo": "https://koisalinda.com.br/img/logo-kl-main.png", "image": "https://koisalinda.com.br/img/hero.webp", "description": "Ateliê de moda festa feminina no Rio de Janeiro desde 1994. Aluguel, venda e criação sob medida de vestidos de noiva, debutante, madrinha, convidada e formanda, além de ternos. Ajuste sob medida em ateliê próprio.", "foundingDate": "1994", "founder": {"@type": "Person", "name": "Jussara Pessanha", "jobTitle": "Estilista e co-fundadora"}, "areaServed": [{"@type": "City", "name": "Niterói"}, {"@type": "City", "name": "Rio de Janeiro"}, {"@type": "State", "name": "Rio de Janeiro"}], "sameAs": ["https://www.instagram.com/koisalindakl/", "https://www.facebook.com/koisalindaoficial/", "https://www.tiktok.com/@koisalindaoficial"], "subOrganization": [{"@id": "https://koisalinda.com.br/#loja-sao-francisco"}, {"@id": "https://koisalinda.com.br/#loja-barra-da-tijuca"}]}, {"@type": "WebSite", "@id": "https://koisalinda.com.br/#website", "url": "https://koisalinda.com.br/", "name": "Koisa Linda", "inLanguage": "pt-BR", "publisher": {"@id": "https://koisalinda.com.br/#organization"}}, {"@type": "ClothingStore", "@id": "https://koisalinda.com.br/#loja-sao-francisco", "name": "Koisa Linda — São Francisco (Niterói)", "parentOrganization": {"@id": "https://koisalinda.com.br/#organization"}, "url": "https://koisalinda.com.br/unidades/#sf", "image": "https://koisalinda.com.br/img/hero.webp", "telephone": "+552197085-8787", "address": {"@type": "PostalAddress", "streetAddress": "Av. Presidente Roosevelt, 37 — São Francisco", "addressLocality": "Niterói", "addressRegion": "RJ", "postalCode": "24360-066", "addressCountry": "BR"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "18:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "14:00"}], "currenciesAccepted": "BRL", "sameAs": ["https://www.instagram.com/koisalindakl/", "https://www.facebook.com/koisalindaoficial/", "https://www.tiktok.com/@koisalindaoficial"], "makesOffer": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Aluguel de vestido de noiva"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Aluguel de vestido de debutante"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Aluguel de vestido de madrinha e festa"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Venda de vestido de festa"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Criação de vestido sob medida em ateliê próprio"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ajuste e personalização de vestido"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Aluguel e venda de terno"}}]}, {"@type": "ClothingStore", "@id": "https://koisalinda.com.br/#loja-barra-da-tijuca", "name": "Koisa Linda — Barra da Tijuca (Shopping Downtown)", "parentOrganization": {"@id": "https://koisalinda.com.br/#organization"}, "url": "https://koisalinda.com.br/unidades/#barra", "image": "https://koisalinda.com.br/img/hero.webp", "telephone": "+552196647-5383", "address": {"@type": "PostalAddress", "streetAddress": "Av. das Américas, 500 — Shopping Downtown, Bloco 8, Loja 130", "addressLocality": "Rio de Janeiro", "addressRegion": "RJ", "postalCode": "22640-100", "addressCountry": "BR"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "09:00", "closes": "19:00"}], "currenciesAccepted": "BRL", "sameAs": ["https://www.instagram.com/koisalindakl/", "https://www.facebook.com/koisalindaoficial/", "https://www.tiktok.com/@koisalindaoficial"], "makesOffer": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Aluguel de vestido de noiva"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Aluguel de vestido de debutante"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Aluguel de vestido de madrinha e festa"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Venda de vestido de festa"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Criação de vestido sob medida em ateliê próprio"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ajuste e personalização de vestido"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Aluguel e venda de terno"}}]}]}</script><style>
+.kl-duas-portas{background:var(--cream,#FBF7EF);border-top:1px solid var(--line,#e9e0d2);padding:60px 24px}
+.kl-duas-portas .caixa{max-width:960px;margin:0 auto}
+.kl-duas-portas .chamada{text-align:center;font-family:var(--serif,'Playfair Display',Georgia,serif);font-style:italic;font-weight:400;font-size:clamp(23px,3.2vw,31px);color:var(--ruby,#722F37);line-height:1.22;margin:0 auto 30px;max-width:22ch;text-wrap:balance}
+.kl-duas-portas .par{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.kl-duas-portas .porta{background:#fff;border:1px solid var(--line,#e9e0d2);border-radius:15px;padding:26px 26px 24px;display:flex;flex-direction:column}
+.kl-duas-portas .selo{align-self:flex-start;font-family:var(--sans,'Questrial',sans-serif);font-size:10.5px;letter-spacing:2.6px;text-transform:uppercase;color:var(--gold,#C89F3C);border:1px solid var(--baunilha,#F4E5C4);border-radius:999px;padding:8px 15px;margin-bottom:15px}
+.kl-duas-portas .porta.livre .selo{color:var(--ruby,#722F37)}
+.kl-duas-portas h3{font-family:var(--serif,'Playfair Display',Georgia,serif);font-style:italic;font-weight:400;font-size:23px;color:var(--ruby,#722F37);margin:0 0 9px;line-height:1.2}
+.kl-duas-portas p{font-family:var(--body,'Arapey',Georgia,serif);font-size:16.5px;line-height:1.6;color:#6b5c57;margin:0 0 20px;flex:1}
+.kl-duas-portas .cta{align-self:flex-start;display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:13px 24px;border-radius:999px;background:var(--ruby,#722F37);color:var(--baunilha,#F4E5C4);font-family:var(--sans,'Questrial',sans-serif);font-size:11.5px;letter-spacing:1.7px;text-transform:uppercase;text-decoration:none}
+.kl-duas-portas .cta.leve{background:transparent;color:var(--ruby,#722F37);border:1px solid var(--baunilha,#F4E5C4)}
+.kl-duas-portas .cta:hover{opacity:.9}
+@media(max-width:760px){.kl-duas-portas{padding:44px 20px}.kl-duas-portas .par{grid-template-columns:1fr;gap:14px}.kl-duas-portas .cta{align-self:stretch;width:100%}.kl-duas-portas .chamada{margin-bottom:24px}}
+</style><link rel="stylesheet" href="/kl-refine.css?v=20260904"><script defer src="/kl-ui.js?v=20260904"></script><link rel="stylesheet" href="/kl-fonts.css"><link rel="canonical" href="https://koisalinda.com.br/"><meta property="og:url" content="https://koisalinda.com.br/"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://koisalinda.com.br/#webpage", "url": "https://koisalinda.com.br/", "name": "Vestidos de noiva e festa em Niterói e Barra | Koisa Linda", "description": "Aluguel e sob medida de vestidos de noiva, debutante e festa, além de ternos. Conheça o ateliê e as lojas em São Francisco, Niterói, e Barra da Tijuca.", "inLanguage": "pt-BR", "isPartOf": {"@id": "https://koisalinda.com.br/#website"}}</script><link rel="stylesheet" href="/kl-seo.css?v=20260905"><meta name="description" content="Aluguel e sob medida de vestidos de noiva, debutante e festa, além de ternos. Conheça o ateliê e as lojas em São Francisco, Niterói, e Barra da Tijuca."><meta property="og:title" content="Vestidos de noiva e festa em Niterói e Barra | Koisa Linda"><meta property="og:description" content="Aluguel e sob medida de vestidos de noiva, debutante e festa, além de ternos. Conheça o ateliê e as lojas em São Francisco, Niterói, e Barra da Tijuca."><meta property="og:image" content="https://koisalinda.com.br/img/hero.webp"><meta property="og:image:alt" content="Vestidos de noiva e festa em Niterói e Barra | Koisa Linda"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Vestidos de noiva e festa em Niterói e Barra | Koisa Linda"><meta name="twitter:description" content="Aluguel e sob medida de vestidos de noiva, debutante e festa, além de ternos. Conheça o ateliê e as lojas em São Francisco, Niterói, e Barra da Tijuca."><meta name="twitter:image" content="https://koisalinda.com.br/img/hero.webp"><script defer src="/kl-booking-links.js?v=20260915agenda"></script><link rel="stylesheet" href="/kl-visit-free.css?v=20260928"><link rel="stylesheet" href="/kl-layout.css?v=20260908aida"></head><body data-kl-page="index"><noscript><img alt="" height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1720591949105146&amp;ev=PageView&amp;noscript=1" decoding="async"></noscript><a class="kl-skip" href="/#conteudo">Pular para o conteúdo</a><header><div class="nav"><a class="logo" href="/"><img class="sym" src="/img/roma-kl.webp" alt="" width="40" height="42" decoding="async"><img src="/img/logo-kl-main.png" alt="KL" decoding="async"><div class="wm">KOISA LINDA<small>DESDE 1994</small></div></a><nav class="menu"><a href="/" class="cur">Início</a><a href="/sobre/" class="">Sobre</a><a href="/catalogo/" class="">Catálogo</a><a href="/prova-virtual/" class="">Prova Virtual ✨</a><a href="/unidades/" class="">Unidades</a><a href="/servicos/" class="">Serviços</a></nav><a class="ig-btn" href="https://www.instagram.com/koisalindakl/" target="_blank" rel="noopener" aria-label="Ver o Instagram da Koisa Linda"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.4"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a><button class="mtog" aria-label="Abrir menu" aria-expanded="false"><span class="bars"><span></span><span></span><span></span></span><b class="mtog-lbl">Menu</b></button></div><nav class="mnav"><a href="/" class="cur">Início</a><a href="/sobre/" class="">Sobre</a><a href="/catalogo/" class="">Catálogo</a><a href="/prova-virtual/" class="">Prova Virtual ✨</a><a href="/unidades/" class="">Unidades</a><a href="/servicos/" class="">Serviços</a></nav></header><main id="conteudo">
+<section class="hero hero-editorial" aria-labelledby="hero-title">
+  <div class="hero-media">
+    <picture><source type="image/avif" srcset="/img/hero-pomar-sm.avif 760w, /img/hero-pomar-md.avif 1200w, /img/hero-pomar.avif 1500w" sizes="(max-width: 680px) 100vw, 52vw"><img src="/img/hero-pomar-md.webp" srcset="/img/hero-pomar-sm.webp 760w, /img/hero-pomar-md.webp 1200w, /img/hero-pomar.webp 1500w" sizes="(max-width: 680px) 100vw, 52vw" width="1500" height="1900" alt="Noiva da Koisa Linda em um jardim, com vestido e véu" fetchpriority="high" decoding="async"></picture>
+  </div>
+  <div class="hero-copy">
+    <div class="eyebrow">Ateliê de celebrações · desde 1994</div>
+    <h1 id="hero-title">Qual detalhe faz você se imaginar nesse momento?</h1>
+    <p>Do vestido ao terno, a escolha começa pelo seu estilo. Compare silhuetas, cores e acabamentos; depois, descubra o caimento com a orientação da nossa equipe.</p>
+    <div class="hero-locations">São Francisco, Niterói <span>·</span> Barra da Tijuca</div>
+    <div class="cta">
+      <a class="btn-pri" href="/agendar/?variant=a&amp;ui_source=home_hero_cta">Agendar minha prova</a>
+      <a class="btn-out" href="/catalogo/">Explorar o catálogo</a>
+    </div>
+    <p class="hero-note">Noiva e debutante com hora marcada. Festa e ternos, visita livre.</p>
+  </div>
+</section>
+
+<section class="section center" id="escolha">
+  <div class="intent-head"><div class="eyebrow">Qual é o seu momento?</div>
+  <h2 class="sec-title" style="margin-top:8px">Comece pela ocasião. Encontre suas referências.</h2>
+  <p>Explore os modelos para o momento que você vai viver. O que encanta na imagem merece ser conhecido de perto.</p></div>
+  <div class="cols">
+    <a class="col" href="/agendar/?ocasiao=noiva&amp;variant=a&amp;ui_source=home_intencao_noiva"><img src="https://vguwohpsbodrxbrtrqkm.supabase.co/storage/v1/render/image/public/koisa-catalogo-barra/vestidos-noiva/NV-001-ia.jpg?width=640&amp;resize=contain&amp;quality=72&amp;format=webp" alt="Vestido de noiva Koisa Linda" loading="lazy" decoding="async"><div class="ov"><small>Casamento</small><span>Sou noiva</span><p>Renda, silhueta e movimento. Compare referências e agende sua prova de noiva.</p><div class="mini-cta">Agendar pelo site →</div></div></a>
+    <a class="col" href="/agendar/?ocasiao=debutante&amp;variant=a&amp;ui_source=home_intencao_debutante"><img src="https://vguwohpsbodrxbrtrqkm.supabase.co/storage/v1/render/image/public/koisa-catalogo-barra/vestidos-debutante/DB-001-ia.jpg?width=640&amp;resize=contain&amp;quality=72&amp;format=webp" alt="Vestido de debutante Koisa Linda" loading="lazy" decoding="async"><div class="ov"><small>15 anos</small><span>Sou debutante</span><p>Qual estilo vai entrar na festa? Conheça os vestidos e agende sua prova de 15 anos.</p><div class="mini-cta">Agendar pelo site →</div></div></a>
+    <a class="col" href="/catalogo/?cat=vestidos-madrinha"><img src="https://vguwohpsbodrxbrtrqkm.supabase.co/storage/v1/render/image/public/koisa-catalogo-barra/vestidos-madrinha/MD-M-001-ia.jpg?width=640&amp;resize=contain&amp;quality=72&amp;format=webp" alt="Vestido de madrinha e festa Koisa Linda" loading="lazy" decoding="async"><div class="ov"><small>Festa</small><span>Sou madrinha ou convidada</span><p>A cor chama. O caimento ajuda a escolher. Visite a loja sem agendar.</p><div class="mini-cta">Ver festa →</div></div></a>
+    <a class="col" href="/catalogo/?cat=ternos"><img src="https://vguwohpsbodrxbrtrqkm.supabase.co/storage/v1/render/image/public/koisa-catalogo-barra/ternos/TR-001-ia.jpg?width=640&amp;resize=contain&amp;quality=72&amp;format=webp" alt="Terno masculino Koisa Linda" loading="lazy" decoding="async"><div class="ov"><small>Masculino</small><span>Preciso de terno</span><p>Observe corte, cor e conjunto. Descubra o caimento na loja, sem agendar.</p><div class="mini-cta">Ver ternos →</div></div></a>
+  </div>
+</section>
+<section class="section alt center">
+  <div class="eyebrow">Clientes reais · desde 1994</div>
+  <h2 class="sec-title" style="margin-top:8px">Desde 1994, escolhas que viram lembranças</h2>
+  <p style="color:var(--muted);max-width:620px;margin:12px auto 0;font-family:var(--body);font-size:17px">Antes de escolher o vestido, veja quem já viveu esse momento com a Koisa Linda: noivas, debutantes e famílias atendidas nas nossas lojas.</p>
+  <div class="clientes">
+    <div class="cli wide"><img loading="lazy" src="/img/cliente-noiva-1.webp" alt="Noiva real Koisa Linda" decoding="async"></div>
+    <div class="cli"><img loading="lazy" src="/img/cliente-noiva-2.webp" alt="Noiva Koisa Linda" decoding="async"></div>
+    <div class="cli"><img loading="lazy" src="/img/cliente-deb-1.webp" alt="Debutante Koisa Linda" decoding="async"></div>
+    <a class="cli wide" href="https://www.instagram.com/p/DYm3LM8Gaey/" target="_blank" rel="noopener" aria-label="Julia e Giovana, gêmeas debutantes — ver o post no Instagram"><img loading="lazy" src="/img/experiencia/clientes/gemeas-wide.webp" alt="Julia e Giovana, gêmeas debutantes vestidas pela Koisa Linda" decoding="async"></a>
+    <a class="cli" href="https://www.instagram.com/p/DaTQPn2nb9E/" target="_blank" rel="noopener" aria-label="Aline Emerim, Mrs Classic Brasil 2025 — ver o post no Instagram"><img loading="lazy" src="/img/experiencia/clientes/aline.webp" alt="Aline Emerim, Mrs Classic Brasil 2025, de vestido esmeralda Koisa Linda" decoding="async"></a>
+    <div class="cli"><img loading="lazy" src="/img/experiencia/clientes/giovana.webp" alt="Giovana, cliente Koisa Linda, de vestido vermelho em casamento" decoding="async"></div>
+  </div>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px">
+    <a class="btn-pri" href="/agendar/?variant=a&amp;ui_source=home_schedule_cta">Agendar minha prova pelo site</a><a class="btn-out" href="/noivas/experiencia/">Viver a experiência noiva</a>
+    <a class="btn-out" href="https://www.instagram.com/koisalindakl/" target="_blank" rel="noopener">Ver mais no Instagram</a>
+  </div>
+</section>
+<section class="section center" id="depoimentos">
+  <div class="eyebrow">Quem viveu esse cuidado</div>
+  <h2 class="sec-title" style="margin-top:8px">O que dizem as nossas clientes</h2>
+  <div class="kl-depo">
+    <div class="kl-depo-grid">
+      <figure class="kl-quote"><blockquote><p>A experiência com a Koisa Linda foi fantástica, um atendimento perfeito desde o primeiro contato até o final da festa. Eu super recomendo.</p></blockquote><figcaption><cite>Leide R.</cite><span class="kl-qmeta">Koisa Linda · São Francisco</span></figcaption></figure>
+      <figure class="kl-quote"><blockquote><p>Ainda estou um pouco anestesiada com todo esse momento mágico que é ver a filha debutar. Quero agradecer imensamente a você e sua equipe por tanto carinho, profissionalismo e amor que dedicaram à nossa família, principalmente a Luiza. Vocês fizeram totalmente a diferença e contribuíram para nosso dia ser mágico. Obrigada por tudo.</p></blockquote><figcaption><cite>Tatiana, mãe da Luiza</cite><span class="kl-qmeta">Debutante · São Francisco</span></figcaption></figure>
+      <figure class="kl-quote"><blockquote><p>Maravilhosa experiência! Atendimento impecável, roupas lindíssimas. Sem palavras para agradecer por tudo e por tanto.</p></blockquote><figcaption><cite>Joseli R.</cite><span class="kl-qmeta">Koisa Linda · São Francisco</span></figcaption></figure>
+    </div>
+    <p class="kl-depo-note">Avaliações reais de clientes no Google.</p>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="split kl-flow-guide">
+    <div class="tx">
+      <div class="eyebrow">Como funciona</div>
+      <h2 class="sec-title" style="text-align:left;margin-top:8px">Da referência ao espelho</h2>
+      <p>Noiva e debutante entram com hora marcada. Madrinha, convidada, formanda e terno continuam com visita livre nas unidades.</p>
+    </div>
+    <div class="kl-duas-portas" style="padding:0;background:transparent;border:0">
+      <div class="caixa"><div class="par">
+        <div class="porta"><span class="selo">✦ Com hora marcada</span><h3>Noiva e debutante</h3><p>Leve suas referências e conte a ocasião. Na prova, você compara modelos e conversa sobre caimento, ajustes e condições.</p><a class="cta" href="/agendar/?variant=a&amp;ui_source=home_flow_schedule">Agendar pelo site</a></div>
+        <div class="porta livre"><span class="selo">✓ Visita livre</span><h3>Festa, madrinha e terno</h3><p>Não precisa agendar. Veja peças, escolha a loja e fale com a unidade se quiser confirmar disponibilidade.</p><a class="cta leve" href="/catalogo/?ui_source=home_flow_catalog">Ver catálogo</a></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="split">
+    <div class="tryon-steps">
+      <div class="tst"><span class="tsn">01</span><span class="tsb">Escolha o vestido</span><span class="tsd">no cat&aacute;logo, pelo c&oacute;digo ou pela cor</span></div>
+      <div class="tst"><span class="tsn">02</span><span class="tsb">Envie sua foto</span><span class="tsd">de corpo inteiro, de frente</span></div>
+      <div class="tst"><span class="tsn">03</span><span class="tsb">Veja em voc&ecirc;</span><span class="tsd">uma referência visual no celular</span></div>
+    </div>
+    <div class="tx">
+      <div class="eyebrow">Novidade · Prova virtual</div>
+      <h2 class="sec-title" style="text-align:left;margin-top:8px">Imagine o estilo antes de provar</h2>
+      <p>Escolha um vestido e use uma foto sua para criar uma simulação com IA. É uma referência visual para explorar estilos; o tecido e o caimento você conhece na prova presencial.</p>
+      <p style="margin-top:10px">Gostou de uma opção? Guarde o código e consulte a disponibilidade com a loja.</p>
+      <a class="btn-pri" style="margin-top:22px" href="/prova-virtual/">Provar em mim</a><a class="btn-out" style="margin-top:22px;margin-left:10px" href="/unidades/?ui_source=home_tryon_cta">Preparar minha visita</a>
+    </div>
+  </div>
+</section>
+
+<section class="section alt center" style="padding-top:64px;padding-bottom:64px">
+  <div class="eyebrow">Desde 1994</div>
+  <h2 class="sec-title" style="margin-top:8px">O detalhe continua no ateliê</h2>
+  <p style="font-family:var(--body);font-size:17.5px;color:#5f534b;max-width:620px;margin:14px auto 0;line-height:1.65">Com a estilista Jussara Pessanha, converse sobre o que faz diferença na sua escolha: silhueta, acabamento e possibilidades de ajuste ou criação sob medida.</p>
+  <div class="mini-svcs"><span>❀ Aluguel</span><i></i><span>✦ Sob medida</span><i></i><span>♛ Ternos nas duas lojas</span></div>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px"><a class="btn-out" href="/sobre/">Nossa história</a><a class="btn-out" href="/servicos/">Todos os serviços</a></div>
+</section>
+
+<section class="section center" id="aluguel"><div class="eyebrow">Sua escolha, com clareza</div><h2 class="sec-title">Encontre o modelo. Conheça as condições.</h2><p>Aluguel, venda ou sob medida: comece pelas referências que encantaram você. A equipe confirma a modalidade, o valor, a disponibilidade para a data e os ajustes possíveis de cada peça.</p><div class="mini-svcs"><a href="/noivas/">Noivas</a><i></i><a href="/debutantes/">Debutantes</a><i></i><a href="/madrinhas/">Madrinhas e festa</a><i></i><a href="/ternos/">Ternos</a></div><a class="btn-out" href="/servicos/">Entender as opções e o ateliê</a></section>
+
+<section class="section center" id="pagamento"><div class="eyebrow">Antes de decidir</div><h2 class="sec-title">Tudo combinado para a sua escolha.</h2><p>Converse com a unidade sobre valor, formas de pagamento e prazos. Assim, você entende as condições da peça antes de contratar.</p><a class="btn-out" href="/unidades/">Consultar minha unidade</a></section>
+
+
+<section class="section center" id="lojas">
+  <div class="eyebrow">Nossas lojas</div>
+  <h2 class="sec-title" style="margin-top:8px">Visite a Koisa Linda</h2>
+  <div class="lojas-duo">
+    <div class="loja-card">
+      <img loading="lazy" src="/img/loja-sf.webp" alt="Fachada da loja Koisa Linda Sao Francisco, Niteroi" decoding="async">
+      <h3>Koisa Linda · São Francisco</h3>
+      <div class="city">Niterói · Matriz</div>
+      <p>Av. Presidente Roosevelt, 37<br>seg a sex 9h–18h · sáb 9h–14h</p>
+      <div class="acts"><a class="btn-pri" href="/agendar/?un=sf&amp;variant=a&amp;ui_source=home_loja_sf">Agendar pelo site</a><a class="btn-out" href="https://maps.google.com/?q=Koisa+Linda+S%C3%A3o+Francisco+Niter%C3%B3i" target="_blank" rel="noopener">Ver no mapa</a></div>
+    </div>
+    <div class="loja-card">
+      <img loading="lazy" src="/img/loja-barra.webp" alt="Fachada da loja Koisa Linda na Barra, Shopping Downtown" decoding="async">
+      <h3>Koisa Linda · Barra da Tijuca</h3>
+      <div class="city">Shopping Downtown · Bloco 8, Loja 130</div>
+      <p>Av. das Américas, 500<br>seg a sáb 9h–19h</p>
+      <div class="acts"><a class="btn-pri" href="/agendar/?un=barra&amp;variant=a&amp;ui_source=home_loja_barra">Agendar pelo site</a><a class="btn-out" href="/como-chegar/">Como chegar em vídeo</a></div>
+    </div>
+  </div>
+</section>
+
+<div class="band">
+  <h2>Pronta para conhecer de perto?</h2>
+  <p>Noiva e debutante: escolha a unidade e consulte os horários da prova. Madrinha, convidada, formanda e terno: visite a loja no horário de funcionamento, sem agendar.</p>
+  <div class="band-cta">
+    <a class="btn-pri" href="/agendar/?ab=auto&amp;ui_source=home_final_schedule">Escolher meu horário</a>
+    <a class="btn-out" href="/catalogo/">Ver catálogo</a>
+    <a class="btn-out" href="/unidades/">Ver unidades</a>
+  </div>
+  <div class="band-sec"><a href="/unidades/">Ver endereços e horários</a></div>
+</div>
+<section class="kl-seo-section"><h2>Encontre seu look por ocasião</h2><nav class="kl-seo-links" aria-label="Coleções por ocasião"><a href="/noivas/">Noivas</a><a href="/debutantes/">Debutantes</a><a href="/madrinhas/">Madrinhas e festa</a><a href="/ternos/">Ternos</a></nav><p>Conheça os modelos e o atendimento de cada ocasião. Veja também <a href="/unidades/">os endereços e horários das lojas</a>.</p></section></main><footer><img class="fimg" src="/img/logo-kl-footer.png" alt="KL" decoding="async"><div class="fbrand">KOISA LINDA</div><div class="fphrase">Unindo famílias. Realizando sonhos.</div><div class="kl-footer-stores"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Koisa+Linda+Shopping+Downtown+Avenida+das+Am%C3%A9ricas+500+Bloco+8+Loja+130+Rio+de+Janeiro" target="_blank" rel="noopener"><strong>Barra da Tijuca · Rio de Janeiro</strong><span>Av. das Américas, 500 · Shopping Downtown · Bloco 8, Loja 130</span><span>Como chegar →</span></a><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Koisa+Linda+Avenida+Presidente+Roosevelt+37+S%C3%A3o+Francisco+Niter%C3%B3i" target="_blank" rel="noopener"><strong>São Francisco · Niterói</strong><span>Av. Presidente Roosevelt, 37 · São Francisco, Niterói</span><span>Como chegar →</span></a></div><p class="kl-footer-visit">Vestidos de festa: venha sem agendar, no horário de funcionamento.<br>Noivas e debutantes: agende sua prova.</p><div class="fsoc"><a href="https://www.instagram.com/koisalindakl/" target="_blank">Instagram</a><a href="https://www.facebook.com/koisalindaoficial/" target="_blank">Facebook</a><a href="https://www.tiktok.com/@koisalindaoficial" target="_blank">TikTok</a><a href="https://br.pinterest.com/koisalinda_oficial/" target="_blank">Pinterest</a></div><div class="fverse">“Os teus renovos são um pomar de romãs, com frutos excelentes.”<cite>Cânticos 4:13</cite></div><small>Costuramos sonhos desde 1994.<br>CNPJ 02.504.054/0001-10 · © 2026 Koisa Linda</small><a class="kl-privacy-link" href="/privacidade/">Privacidade</a></footer>
+<script>(function(){var b=document.querySelector(".mtog");if(!b)return;b.addEventListener("click",function(){var o=document.body.classList.toggle("mopen");b.setAttribute("aria-expanded",o?"true":"false")});document.querySelectorAll(".mnav a").forEach(function(a){a.addEventListener("click",function(){document.body.classList.remove("mopen")})})})();</script><script src="/kl-site-enhance.js?v=20261007agenda1"></script></body></html>

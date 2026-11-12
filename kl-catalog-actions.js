@@ -1,0 +1,356 @@
+(function (root, factory) {
+  'use strict';
+
+  var api = factory();
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  if (root) {
+    root.KLCatalog = root.KLCatalog || {};
+    root.KLCatalog.Actions = api;
+  }
+}(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+  'use strict';
+
+  var CONTACTS = Object.freeze({
+    barra: '5521966475383',
+    sf: '5521970858787',
+  });
+  var FAVORITES_KEY = 'kl-favoritos-v1';
+  var MAX_WHATSAPP_HREF_LENGTH = 1800;
+  var TRY_ON_CATEGORIES = Object.freeze([
+    'vestidos-noiva',
+    'vestidos-madrinha',
+    'vestidos-debutante',
+  ]);
+
+  function normalizeCode(value) {
+    return String(value == null ? '' : value).trim().toUpperCase();
+  }
+
+  function unitOf(product) {
+    return product && (product.un === 'barra' || product.un === 'sf') ? product.un : null;
+  }
+
+  function isTryOnEligible(product) {
+    return Boolean(product && TRY_ON_CATEGORIES.indexOf(product.c) > -1);
+  }
+
+  function tryOnHref(product) {
+    var code = normalizeCode(product && product.k);
+    return isTryOnEligible(product) && code
+      ? '/prova-virtual/?p=' + encodeURIComponent(code)
+      : null;
+  }
+
+  function scheduleOccasion(category) {
+    return category === 'vestidos-noiva' ? 'noiva'
+      : category === 'vestidos-debutante' ? 'debutante' : null;
+  }
+
+  // The caller supplies a product resolved from the canonical catalog, never URL text.
+  function productScheduleHref(product) {
+    var occasion = scheduleOccasion(product && product.c);
+    var unit = unitOf(product);
+    var code = product && typeof product.k === 'string' ? normalizeCode(product.k) : '';
+    if (!occasion || !unit || !/^[A-Z0-9][A-Z0-9-]{0,39}$/.test(code)) return null;
+    return '/agendar/?ocasiao=' + occasion + '&un=' + unit
+      + '&modelo=' + encodeURIComponent(code) + '&ui_source=catalog_product_schedule';
+  }
+
+  function categoryScheduleHref(category, unit) {
+    var occasion = scheduleOccasion(category);
+    if (!occasion) return null;
+    return '/agendar/?ocasiao=' + occasion
+      + (unit === 'barra' || unit === 'sf' ? '&un=' + unit : '')
+      + '&ui_source=catalog_category_schedule';
+  }
+
+  function unitLabel(unit) {
+    return unit === 'barra' ? 'Barra da Tijuca'
+      : unit === 'sf' ? 'São Francisco'
+        : 'unidade Koisa Linda';
+  }
+
+  function categoryLabel(product) {
+    var raw = String(product && (product.l || product.c) || '').trim();
+    if (raw) return raw;
+    var category = String(product && product.c || '').trim();
+    return category === 'vestidos-noiva' ? 'Noivas'
+      : category === 'vestidos-debutante' ? 'Debutantes'
+        : category === 'vestidos-madrinha' ? 'Madrinhas & Festa'
+          : category === 'ternos' ? 'Ternos'
+            : 'Catálogo';
+  }
+
+  function categoryIntent(product) {
+    var category = String(product && product.c || '').trim();
+    return category === 'vestidos-noiva' ? 'modelo de noiva'
+      : category === 'vestidos-debutante' ? 'modelo de debutante'
+        : category === 'vestidos-madrinha' ? 'vestido de festa'
+          : category === 'ternos' ? 'terno'
+            : 'peça do catálogo';
+  }
+
+  function productMessage(product, selectedUnit) {
+    var unit = selectedUnit === 'barra' || selectedUnit === 'sf' ? selectedUnit : unitOf(product);
+    var code = normalizeCode(product && product.k);
+    return 'Olá! Vim pelo catálogo da Koisa Linda e gostei deste ' + categoryIntent(product)
+      + ' para provar na unidade ' + unitLabel(unit) + ': ' + code + '.\n'
+      + (scheduleOccasion(product && product.c)
+        ? 'Quero confirmar disponibilidade e consultar uma prova.'
+        : 'Quero confirmar disponibilidade e saber como visitar a loja, sem agendamento.');
+  }
+
+  function whatsappHref(contact, message) {
+    return 'https://wa.me/' + contact + '?text=' + encodeURIComponent(message);
+  }
+
+  function productConversionHref(product, contacts) {
+    return productScheduleHref(product)
+      || categoryScheduleHref(product && product.c, unitOf(product))
+      || productWhatsAppHref(product, contacts);
+  }
+
+  function productWhatsAppHref(product, contacts, selectedUnit) {
+    contacts = contacts || CONTACTS;
+    if (selectedUnit != null && selectedUnit !== 'barra' && selectedUnit !== 'sf') return '/unidades/';
+    var unit = selectedUnit || unitOf(product);
+    return unit && contacts[unit]
+      ? whatsappHref(contacts[unit], productMessage(product, unit))
+      : '/unidades/';
+  }
+
+  function createFavorites(storage, products) {
+    var productByCode = new Map();
+    (Array.isArray(products) ? products : []).forEach(function (product) {
+      var code = normalizeCode(product && product.k);
+      if (code) productByCode.set(code, product);
+    });
+
+    var stored = [];
+    try {
+      var parsed = JSON.parse(storage && typeof storage.getItem === 'function'
+        ? storage.getItem(FAVORITES_KEY) || '[]'
+        : '[]');
+      if (Array.isArray(parsed)) stored = parsed;
+    } catch (error) {
+      stored = [];
+    }
+
+    var selected = new Set();
+    stored.forEach(function (value) {
+      var code = normalizeCode(value);
+      if (code) selected.add(code);
+    });
+
+    function codes() {
+      return Array.from(selected).sort(function (left, right) {
+        return left.localeCompare(right, 'pt-BR');
+      });
+    }
+
+    function items() {
+      return codes().map(function (code) {
+        return productByCode.get(code);
+      }).filter(Boolean);
+    }
+
+    function orphans() {
+      return codes().filter(function (code) {
+        return !productByCode.has(code);
+      });
+    }
+
+    function has(code) {
+      return selected.has(normalizeCode(code));
+    }
+
+    function persist() {
+      try {
+        if (storage && typeof storage.setItem === 'function') {
+          storage.setItem(FAVORITES_KEY, JSON.stringify(codes()));
+        }
+      } catch (error) {
+        // Storage is optional; the in-memory state remains authoritative for this session.
+      }
+    }
+
+    function toggle(code) {
+      var normalized = normalizeCode(code);
+      if (!normalized) return false;
+      if (selected.has(normalized)) selected.delete(normalized);
+      else selected.add(normalized);
+      persist();
+      return selected.has(normalized);
+    }
+
+    function cleanupOrphans() {
+      orphans().forEach(function (code) {
+        selected.delete(code);
+      });
+      persist();
+      return codes();
+    }
+
+    function clear() {
+      selected.clear();
+      try {
+        if (storage && typeof storage.removeItem === 'function') {
+          storage.removeItem(FAVORITES_KEY);
+        } else if (storage && typeof storage.setItem === 'function') {
+          storage.setItem(FAVORITES_KEY, '[]');
+        }
+      } catch (error) {
+        // Clearing storage is best-effort; memory is already clear.
+      }
+    }
+
+    function groups() {
+      return items().reduce(function (grouped, product) {
+        var unit = unitOf(product);
+        if (unit) grouped[unit].push(product);
+        return grouped;
+      }, { barra: [], sf: [] });
+    }
+
+    return {
+      cleanupOrphans: cleanupOrphans,
+      clear: clear,
+      codes: codes,
+      groups: groups,
+      has: has,
+      items: items,
+      orphans: orphans,
+      toggle: toggle,
+    };
+  }
+
+  function favoriteMessage(items) {
+    var list = (Array.isArray(items) ? items : []).filter(Boolean);
+    var first = list[0] || null;
+    var unit = unitOf(first);
+    var categories = [];
+    list.forEach(function (product) {
+      var label = categoryLabel(product);
+      if (categories.indexOf(label) === -1) categories.push(label);
+    });
+    return 'Olá! Vim pelo catálogo da Koisa Linda e separei estes modelos que salvei no catálogo'
+      + (categories.length ? ' (' + categories.join(', ') + ')' : '')
+      + ' para provar na unidade ' + unitLabel(unit) + ':\n'
+      + list.map(function (product) {
+        return '- ' + normalizeCode(product && product.k);
+      }).join('\n')
+      + '\nQuero confirmar disponibilidade e ver o melhor horário para prova.';
+  }
+
+  function buildFavoriteBatches(products, contacts, maxLength) {
+    contacts = contacts || CONTACTS;
+    var requestedLimit;
+    try {
+      requestedLimit = Number(maxLength);
+    } catch (error) {
+      requestedLimit = Number.NaN;
+    }
+    var limit = Number.isFinite(requestedLimit) && requestedLimit > 0
+      ? Math.min(requestedLimit, MAX_WHATSAPP_HREF_LENGTH)
+      : MAX_WHATSAPP_HREF_LENGTH;
+    var sorted = (Array.isArray(products) ? products : []).filter(function (product) {
+      var unit = unitOf(product);
+      return unit && contacts[unit];
+    }).slice().sort(function (left, right) {
+      return unitOf(left).localeCompare(unitOf(right), 'pt-BR')
+        || normalizeCode(left.k).localeCompare(normalizeCode(right.k), 'pt-BR');
+    });
+
+    sorted.forEach(function (product) {
+      var singleHref = whatsappHref(unitOf(product) && contacts[unitOf(product)], favoriteMessage([product]));
+      if (singleHref.length > limit) {
+        throw new RangeError('Uma peça excede o limite seguro do link de WhatsApp.');
+      }
+    });
+
+    var pending = [];
+    var batches = [];
+    var currentUnit = null;
+
+    function closeBatch() {
+      if (!pending.length) return;
+      batches.push({
+        unit: currentUnit,
+        items: pending.slice(),
+        href: whatsappHref(contacts[currentUnit], favoriteMessage(pending)),
+      });
+      pending = [];
+    }
+
+    sorted.forEach(function (product) {
+      var unit = unitOf(product);
+      if (currentUnit && unit !== currentUnit) closeBatch();
+      currentUnit = unit;
+      var candidate = pending.concat(product);
+      var candidateHref = whatsappHref(contacts[unit], favoriteMessage(candidate));
+      if (pending.length && candidateHref.length > limit) {
+        closeBatch();
+        currentUnit = unit;
+        pending = [product];
+      } else {
+        pending = candidate;
+      }
+    });
+    closeBatch();
+
+    var totals = batches.reduce(function (counts, batch) {
+      counts[batch.unit] = (counts[batch.unit] || 0) + 1;
+      return counts;
+    }, {});
+    var indexes = {};
+
+    return batches.map(function (batch) {
+      indexes[batch.unit] = (indexes[batch.unit] || 0) + 1;
+      return {
+        unit: batch.unit,
+        index: indexes[batch.unit], // 1-based within each unit.
+        total: totals[batch.unit],
+        items: batch.items,
+        href: batch.href,
+      };
+    });
+  }
+
+  function resolveSharedCta(context, contacts) {
+    contacts = contacts || CONTACTS;
+    if (!context || context.status === 'error') {
+      return { href: '/unidades/', label: 'Escolher unidade' };
+    }
+    var unit = context.product ? unitOf(context.product) : context.unit;
+    if (!unit || !contacts[unit]) {
+      return { href: '/unidades/', label: 'Escolher unidade' };
+    }
+    return {
+      href: whatsappHref(
+        contacts[unit],
+        context.product
+          ? productMessage(context.product)
+          : 'Olá! Vim pelo catálogo da Koisa Linda e quero ajuda para agendar uma prova.',
+      ),
+      label: 'WhatsApp',
+    };
+  }
+
+  return {
+    CONTACTS: CONTACTS,
+    FAVORITES_KEY: FAVORITES_KEY,
+    TRY_ON_CATEGORIES: TRY_ON_CATEGORIES,
+    buildFavoriteBatches: buildFavoriteBatches,
+    categoryScheduleHref: categoryScheduleHref,
+    createFavorites: createFavorites,
+    isTryOnEligible: isTryOnEligible,
+    productMessage: productMessage,
+    productConversionHref: productConversionHref,
+    productScheduleHref: productScheduleHref,
+    productWhatsAppHref: productWhatsAppHref,
+    resolveSharedCta: resolveSharedCta,
+    tryOnHref: tryOnHref,
+    unitOf: unitOf,
+    whatsappHref: whatsappHref,
+  };
+}));
