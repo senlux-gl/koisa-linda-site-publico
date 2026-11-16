@@ -1044,6 +1044,8 @@
     aplicarCopyVariante();
     var sp = new URLSearchParams(location.search);
     var oc = (sp.get('ocasiao') || sp.get('oc') || '').toLowerCase();
+    // 15/11/2026: a Black Friday chama a debutante de "15 anos" (#15-anos); a agenda aceita os dois nomes.
+    oc = { 'noivas': 'noiva', '15-anos': 'debutante', '15anos': 'debutante', 'debutantes': 'debutante' }[oc] || oc;
     if (OCASIOES[oc]) estado.ocasiao = oc;
     var un = (sp.get('un') || sp.get('loja') || '').toLowerCase();
     un = normalizarLoja(un);

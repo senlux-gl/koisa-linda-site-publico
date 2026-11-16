@@ -1,0 +1,221 @@
+<!doctype html><html lang="pt-BR"><head><script data-kl-inline="kl-route-normalize.js">/* Old campaign links keep their model and attribution on the dedicated page. */
+(function (root, factory) {
+  'use strict';
+  var api = factory();
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  if (root) {
+    var next = api.destination(root.location.href);
+    if (next) root.location.replace(next);
+  }
+}(typeof window === 'undefined' ? null : window, function () {
+  'use strict';
+  function destination(href) {
+    try {
+      var url = new URL(href);
+      if (!/^https?:$/.test(url.protocol)) return null;
+      if (!/^\/(?:catalogo(?:\/|\.html)?|catalogo\/index\.html)$/.test(url.pathname)
+          || url.searchParams.get('prova') !== '1') return null;
+      url.pathname = '/prova-virtual/';
+      url.searchParams.delete('prova');
+      return url.href;
+    } catch (_) { return null; }
+  }
+  return { destination: destination };
+}));
+</script><script src="/kl-urls.js"></script><base href="/"><meta charset="utf-8"><script src="/kl-ga.js?v=1"></script><!-- Meta Pixel Code --><script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1720591949105146');fbq('track','PageView');</script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#2c2326">
+<link rel="icon" href="/img/favicon.ico" sizes="any">
+
+
+<link rel="preconnect" href="https://vguwohpsbodrxbrtrqkm.supabase.co" crossorigin>
+<title>Black Friday de noivas e debutantes | Koisa Linda</title>
+
+<style>
+/* Black Friday Koisa Linda · off-black, bordô, dourado e baunilha. Sem preto nem branco puro.
+   Fontes do site: Playfair Display itálico, Arapey e Questrial. Movimento só com transform e opacity. */
+:root{--bf-ink:#2c2326;--bf-ruby:#722F37;--bf-ruby-escuro:#5a242b;--bf-ouro:#C89F3C;--bf-baunilha:#F4E5C4;--bf-champagne:#C9A96E;--bf-creme:#FBF7EF;
+ --bf-serif:'Playfair Display',Georgia,serif;--bf-corpo:'Arapey',Georgia,serif;--bf-sans:'Questrial',system-ui,sans-serif}
+html{background:var(--bf-ink);-webkit-text-size-adjust:100%}
+body.bf-pagina{margin:0;background:var(--bf-ink);color:var(--bf-baunilha);font-family:var(--bf-corpo);line-height:1.5;overflow-x:hidden}
+.bf *,.bf *::before,.bf *::after{box-sizing:border-box}
+.bf a{color:inherit;text-decoration:none}
+.bf a:focus-visible{outline:2px solid var(--bf-baunilha);outline-offset:3px;border-radius:4px}
+.bf h1,.bf h2,.bf h3,.bf p,.bf ul,.bf figure{margin:0}
+
+.bf-topo{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:1240px;margin:0 auto;padding:10px 16px}
+.bf-marca{font-family:var(--bf-serif);font-style:italic;font-weight:500;font-size:22px;letter-spacing:.3px;display:inline-flex;align-items:center;min-height:44px}
+.bf-topo-link{font-family:var(--bf-sans);font-size:11.5px;letter-spacing:3px;text-transform:uppercase;color:var(--bf-ouro);display:inline-flex;align-items:center;min-height:44px;padding:0 4px}
+
+/* A trilha (Início / Black Friday) que a montagem põe depois do topo, no tom da página */
+.bf .kl-seo-crumbs{max-width:1240px;margin:0 auto;padding:0 16px 2px;font-family:var(--bf-sans);font-size:11px;letter-spacing:1px;color:var(--bf-champagne)}
+.bf .kl-seo-crumbs li+li:before{color:var(--bf-champagne)}
+.bf .kl-seo-crumbs a{color:var(--bf-baunilha)}
+.bf .kl-seo-crumbs a:focus-visible{outline-color:var(--bf-baunilha)}
+
+.bf-rotulo{display:block;font-family:var(--bf-sans);font-size:11.5px;letter-spacing:5px;text-transform:uppercase;color:var(--bf-ouro)}
+.bf-frase{display:block;font-family:var(--bf-serif);font-style:italic;font-weight:500;line-height:1.12;text-wrap:balance}
+.bf-preco{display:block;font-family:var(--bf-sans);line-height:1.1}
+.bf-de{color:var(--bf-champagne);font-size:15px;letter-spacing:.5px;text-decoration-thickness:1px}
+.bf-por{font-family:var(--bf-serif);font-style:italic;font-weight:500;color:var(--bf-baunilha);white-space:nowrap}
+.bf-por-rotulo{font-family:var(--bf-sans);font-style:normal;font-size:14px;letter-spacing:.5px;color:var(--bf-champagne);margin-right:2px}
+.bf-ate{display:block;font-family:var(--bf-sans);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--bf-ouro)}
+
+/* Primeira tela: as duas portas */
+.bf-abertura{max-width:1240px;margin:0 auto;padding:18px 16px 40px;text-align:center}
+.bf-abertura h1{font-family:var(--bf-serif);font-style:italic;font-weight:500;font-size:clamp(46px,13vw,80px);line-height:1.04;letter-spacing:-.5px;margin:4px 0 22px}
+.bf-portas{display:grid;grid-template-columns:1fr;gap:14px}
+.bf-porta{display:flex;flex-direction:column;align-items:center;gap:9px;border-top:1px solid var(--bf-ouro);padding:22px 4px 8px}
+.bf-porta .bf-frase{font-size:clamp(28px,7.6vw,40px)}
+.bf-porta .bf-por{font-size:clamp(30px,8.4vw,46px)}
+.bf-ver{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 24px;margin-top:6px;border:1px solid var(--bf-baunilha);border-radius:999px;font-family:var(--bf-sans);font-size:12px;letter-spacing:2px;text-transform:uppercase;transition:transform .2s ease,opacity .2s ease}
+.bf-porta:hover .bf-ver{transform:translateY(-2px)}
+.bf-porta:active .bf-ver{transform:scale(.98)}
+
+/* Cada porta com os modelos selecionados */
+.bf-secao{padding:56px 16px 64px;border-top:1px solid rgba(200,159,60,.45);scroll-margin-top:0}
+.bf-cabeca{text-align:center;max-width:640px;margin:0 auto 36px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.bf-cabeca .bf-frase{font-size:clamp(32px,8.6vw,52px)}
+.bf-cabeca .bf-por{font-size:clamp(32px,8.6vw,50px)}
+.bf-grade{list-style:none;padding:0;display:grid;grid-template-columns:1fr;gap:44px;max-width:1200px;margin:0 auto}
+.bf-modelo{display:flex;flex-direction:column;gap:16px}
+.bf-foto{background:rgba(244,229,196,.06);border-radius:2px;overflow:hidden;aspect-ratio:640/857}
+.bf-foto img{display:block;width:100%;height:auto;aspect-ratio:640/857}
+.bf-modelo-texto{display:flex;flex-direction:column;align-items:center;text-align:center;gap:7px}
+.bf-modelo-nome{font-family:var(--bf-serif);font-style:italic;font-weight:500;font-size:22px;line-height:1.15}
+.bf-ref{font-family:var(--bf-sans);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--bf-ouro)}
+.bf-preco-cartao .bf-de{font-size:13.5px}
+.bf-preco-cartao .bf-por{font-size:28px}
+.bf-detalhe{font-family:var(--bf-sans);font-size:10.5px;letter-spacing:2.4px;text-transform:uppercase;color:var(--bf-champagne)}
+.bf-botao{display:flex;align-items:center;justify-content:center;width:100%;max-width:340px;min-height:50px;margin-top:8px;padding:12px 22px;background:var(--bf-ruby);color:var(--bf-baunilha);border:1px solid var(--bf-ouro);border-radius:999px;font-family:var(--bf-sans);font-size:12.5px;letter-spacing:2px;text-transform:uppercase;transition:transform .2s ease,background-color .2s ease}
+.bf-botao:hover{background:var(--bf-ruby-escuro)}
+.bf-botao:active{transform:scale(.98)}
+.bf .bf-nota{font-family:var(--bf-corpo);font-style:italic;font-size:19px;line-height:1.45;text-align:center;max-width:32ch;margin:48px auto 0;color:var(--bf-baunilha)}
+
+/* A regra, no fim */
+.bf-regra{background:var(--bf-ruby);padding:48px 16px}
+.bf-regra .bf-rotulo{color:var(--bf-baunilha);text-align:center;margin-bottom:18px}
+.bf-regra ul{list-style:none;padding:0;max-width:560px;margin:0 auto}
+.bf-regra li{font-size:18px;line-height:1.5;padding:12px 0;border-top:1px solid rgba(244,229,196,.32);text-align:center}
+.bf-regra li:last-child{border-bottom:1px solid rgba(244,229,196,.32)}
+
+.bf-pe{text-align:center;padding:44px 16px 56px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.bf-pe .bf-marca{font-size:26px}
+.bf-assinatura{font-style:italic;font-size:16px;color:var(--bf-champagne)}
+.bf-pe-links{display:flex;gap:22px;justify-content:center;flex-wrap:wrap}
+.bf-pe-links a{font-family:var(--bf-sans);font-size:11.5px;letter-spacing:3px;text-transform:uppercase;color:var(--bf-ouro);display:inline-flex;align-items:center;min-height:44px}
+
+/* Depois de validoAte: só o aviso e o catálogo */
+.bf-fim{display:none;min-height:62vh;padding:64px 16px;text-align:center;flex-direction:column;align-items:center;justify-content:center;gap:26px}
+.bf-fim h2{font-family:var(--bf-serif);font-style:italic;font-weight:500;font-size:clamp(36px,10vw,64px);line-height:1.1;text-wrap:balance}
+.bf-fim a{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 30px;background:var(--bf-ruby);color:var(--bf-baunilha);border:1px solid var(--bf-ouro);border-radius:999px;font-family:var(--bf-sans);font-size:12.5px;letter-spacing:2px;text-transform:uppercase}
+.bf[data-bf-estado="acabou"] .bf-viva,.bf[data-bf-estado="sem-dados"] .bf-viva{display:none}
+.bf[data-bf-estado="acabou"] .bf-fim-acabou,.bf[data-bf-estado="sem-dados"] .bf-fim-sem-dados{display:flex}
+
+/* Movimento discreto. Sem JS ou com movimento reduzido, tudo aparece parado. */
+@media (prefers-reduced-motion:no-preference){
+ .bf-abertura>*{animation:bf-entra .8s cubic-bezier(.2,.7,.2,1) both}
+ .bf-abertura>h1{animation-delay:.05s}
+ .bf-abertura>.bf-portas{animation-delay:.18s}
+ .bf-movimento [data-bf-revela]{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+ .bf-movimento [data-bf-revela]:nth-child(2){transition-delay:.08s}
+ .bf-movimento [data-bf-revela]:nth-child(3){transition-delay:.16s}
+ .bf-movimento [data-bf-revela]:nth-child(4){transition-delay:.24s}
+ .bf-movimento [data-bf-revela]:nth-child(5){transition-delay:.32s}
+ .bf-movimento [data-bf-revela].bf-visivel{opacity:1;transform:none}
+}
+@keyframes bf-entra{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+@media (min-width:600px){
+ .bf-grade{grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 28px}
+ .bf-topo,.bf-abertura,.bf .kl-seo-crumbs{padding-left:32px;padding-right:32px}
+ .bf-secao,.bf-regra{padding-left:32px;padding-right:32px}
+}
+@media (min-width:860px){
+ .bf-portas{grid-template-columns:1fr 1fr;gap:40px;max-width:1040px;margin:0 auto}
+ .bf-abertura{padding-top:28px;padding-bottom:64px}
+ .bf-secao{padding-top:80px;padding-bottom:88px}
+}
+@media (min-width:1024px){
+ .bf-grade{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:56px 24px}
+}
+</style>
+<link rel="stylesheet" href="/kl-fonts.css"><link rel="canonical" href="https://koisalinda.com.br/black-friday/"><meta property="og:url" content="https://koisalinda.com.br/black-friday/"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "@id": "https://koisalinda.com.br/black-friday/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "https://koisalinda.com.br/"}, {"@type": "ListItem", "position": 2, "name": "Black Friday", "item": "https://koisalinda.com.br/black-friday/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://koisalinda.com.br/black-friday/#webpage", "url": "https://koisalinda.com.br/black-friday/", "name": "Black Friday de noivas e debutantes | Koisa Linda", "description": "Black Friday da Koisa Linda: vestidos de noiva e de debutante em modelos selecionados, na Barra da Tijuca e em São Francisco, Niterói. Marque sua prova.", "inLanguage": "pt-BR", "isPartOf": {"@id": "https://koisalinda.com.br/#website"}, "breadcrumb": {"@id": "https://koisalinda.com.br/black-friday/#breadcrumb"}}</script><link rel="stylesheet" href="/kl-seo.css?v=20260905"><meta name="description" content="Black Friday da Koisa Linda: vestidos de noiva e de debutante em modelos selecionados, na Barra da Tijuca e em São Francisco, Niterói. Marque sua prova."><meta property="og:title" content="Black Friday de noivas e debutantes | Koisa Linda"><meta property="og:description" content="Black Friday da Koisa Linda: vestidos de noiva e de debutante em modelos selecionados, na Barra da Tijuca e em São Francisco, Niterói. Marque sua prova."><meta property="og:image" content="https://koisalinda.com.br/img/logo-kl-main.png"><meta property="og:image:alt" content="Black Friday de noivas e debutantes | Koisa Linda"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Black Friday de noivas e debutantes | Koisa Linda"><meta name="twitter:description" content="Black Friday da Koisa Linda: vestidos de noiva e de debutante em modelos selecionados, na Barra da Tijuca e em São Francisco, Niterói. Marque sua prova."><meta name="twitter:image" content="https://koisalinda.com.br/img/logo-kl-main.png"><script defer src="/kl-booking-links.js?v=20260915agenda"></script><link rel="stylesheet" href="/kl-layout.css?v=20260908aida"></head><body data-kl-page="black-friday" class="bf-pagina">
+<div class="bf" id="bf" data-bf-estado="carregando">
+<header class="bf-topo"><a class="bf-marca" href="/" aria-label="Koisa Linda, página inicial">Koisa Linda</a><a class="bf-topo-link" href="/catalogo/">Catálogo</a></header><nav class="kl-seo-crumbs" aria-label="Você está aqui"><ol><li><a href="/">Início</a></li><li><span aria-current="page">Black Friday</span></li></ol></nav>
+<main id="conteudo">
+<div class="bf-viva">
+<section class="bf-abertura" aria-labelledby="bf-h1">
+<h1 id="bf-h1">Black Friday</h1>
+<div class="bf-portas">
+<a class="bf-porta" href="/black-friday/#noiva" data-bf-ir="noiva">
+<span class="bf-rotulo">Noiva</span>
+<span class="bf-frase" data-bf-frase="noiva"></span>
+<span class="bf-preco" data-bf-preco="noiva"></span>
+<span class="bf-ate" data-bf-ate></span>
+<span class="bf-ver">Ver os modelos</span>
+</a>
+<a class="bf-porta" href="/black-friday/#15-anos" data-bf-ir="15-anos">
+<span class="bf-rotulo">15 anos</span>
+<span class="bf-frase" data-bf-frase="debutante"></span>
+<span class="bf-preco" data-bf-preco="debutante"></span>
+<span class="bf-ate" data-bf-ate></span>
+<span class="bf-ver">Ver os modelos</span>
+</a>
+</div>
+</section>
+
+<section class="bf-secao" id="noiva" aria-labelledby="bf-noiva-t">
+<div class="bf-cabeca">
+<p class="bf-rotulo">Noiva · Black Friday</p>
+<h2 class="bf-frase" id="bf-noiva-t" data-bf-frase="noiva"></h2>
+<p class="bf-preco" data-bf-preco="noiva"></p>
+<p class="bf-ate" data-bf-ate></p>
+</div>
+<ul class="bf-grade" data-bf-grade="noiva" aria-label="Vestidos de noiva selecionados"></ul>
+<p class="bf-nota">O ateliê ajusta no seu corpo, prova a prova.</p>
+</section>
+
+<section class="bf-secao" id="15-anos" aria-labelledby="bf-15-t">
+<div class="bf-cabeca">
+<p class="bf-rotulo">15 anos · Black Friday</p>
+<h2 class="bf-frase" id="bf-15-t" data-bf-frase="debutante"></h2>
+<p class="bf-preco" data-bf-preco="debutante"></p>
+<p class="bf-ate" data-bf-ate></p>
+</div>
+<ul class="bf-grade" data-bf-grade="debutante" aria-label="Vestidos de debutante selecionados"></ul>
+<p class="bf-nota">Vocês provam juntas, e o ateliê ajusta cada vestido no corpo dela.</p>
+</section>
+
+<section class="bf-regra" aria-labelledby="bf-regra-t">
+<h2 class="bf-rotulo" id="bf-regra-t">Como funciona</h2>
+<ul>
+<li>Até <span data-bf-ate-dia></span>, na Barra da Tijuca e em São Francisco, Niterói.</li>
+<li>Só nos modelos selecionados desta página.</li>
+<li>Prova com hora marcada. O ateliê ajusta no corpo, prova a prova.</li>
+</ul>
+</section>
+</div>
+
+<section class="bf-fim bf-fim-acabou" aria-labelledby="bf-fim-t">
+<h2 id="bf-fim-t">A Black Friday acabou</h2>
+<a href="/catalogo/">Ver o catálogo</a>
+</section>
+<section class="bf-fim bf-fim-sem-dados" aria-label="Catálogo">
+<h2>Os vestidos estão no catálogo</h2>
+<a href="/catalogo/">Ver o catálogo</a>
+</section>
+<noscript><style>.bf-viva{display:none}.bf-fim-sem-dados{display:flex}</style></noscript>
+</main>
+<div class="bf-pe" role="contentinfo">
+<a class="bf-marca" href="/">Koisa Linda</a>
+<p class="bf-assinatura">Costuramos sonhos desde 1994.</p>
+<nav class="bf-pe-links" aria-label="Mais da Koisa Linda"><a href="/catalogo/">Catálogo</a><a href="/unidades/">Lojas</a></nav>
+</div>
+</div>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1720591949105146&amp;ev=PageView&amp;noscript=1" decoding="async"></noscript>
+<script defer src="/kl-tracking.js?v=20261013funil1"></script>
+<script src="/kl-catalog-data.js?v=20261007festa"></script>
+<script src="/black-friday/bf-modelos.js"></script>
+<script src="/black-friday/bf-pagina.js"></script>
+</body></html>
