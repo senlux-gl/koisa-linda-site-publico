@@ -21,7 +21,7 @@
 (function () {
   'use strict';
 
-  var API = 'https://n8n.janotattec.com.br/webhook/kl-agenda';
+  var API = 'https://n8n.senlux.com.br/webhook/kl-agenda';
 
   var LOJAS = {
     barra: {

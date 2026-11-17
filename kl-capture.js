@@ -10,7 +10,7 @@
   'use strict';
   var DAY = 24 * 60 * 60 * 1000;
   var KEY = 'kl_capture_v1';
-  var API = 'https://n8n.janotattec.com.br/webhook/kl-interesse';
+  var API = 'https://n8n.senlux.com.br/webhook/kl-interesse';
   var VERSION = '2026-09-06.capture.v1';
   var DDDS = /^(?:1[1-9]|2[12478]|3[1-578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])$/;
   function normalizePhone(value) {

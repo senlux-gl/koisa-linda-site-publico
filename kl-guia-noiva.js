@@ -10,7 +10,7 @@
   else { root.KLGuiaNoiva = api; api.init(root); }
 }(typeof window !== 'undefined' ? window : this, function () {
   'use strict';
-  var ENDPOINT = 'https://n8n.janotattec.com.br/webhook/kl-agenda/lead';
+  var ENDPOINT = 'https://n8n.senlux.com.br/webhook/kl-agenda/lead';
   var SOURCE_DETAIL = 'guia_da_noiva_20261007';
   var VARIANT = 'guia-noiva';
   var STORES = ['barra', 'saofrancisco'];

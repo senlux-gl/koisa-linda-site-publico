@@ -26,7 +26,7 @@
   var corpo = raiz.querySelector('[data-nf-corpo]');
   if (!corpo) return;
 
-  var API = 'https://n8n.janotattec.com.br/webhook/kl-agenda';
+  var API = 'https://n8n.senlux.com.br/webhook/kl-agenda';
   var JANELA_DIAS = 14;
   var OCASIAO = raiz.getAttribute('data-ocasiao') === 'debutante' ? 'debutante' : 'noiva';
   var ROTA = OCASIAO === 'debutante' ? 'debutantes' : 'noivas';

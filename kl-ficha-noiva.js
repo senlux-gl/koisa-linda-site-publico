@@ -19,7 +19,7 @@ async function api(data) {
  const payload=data?{...data,token}:{action:'context',token};
  const controller=new AbortController(), timeout=setTimeout(()=>controller.abort(),25000);
  try {
-  const response=await fetch('https://n8n.janotattec.com.br/webhook/kl-ficha-noiva',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),credentials:'omit',referrerPolicy:'no-referrer',cache:'no-store',signal:controller.signal});
+  const response=await fetch('https://n8n.senlux.com.br/webhook/kl-ficha-noiva',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),credentials:'omit',referrerPolicy:'no-referrer',cache:'no-store',signal:controller.signal});
   const result=await response.json();
   if(!response.ok&&!result.code)throw new Error('request_failed');
   return result;
