@@ -82,14 +82,24 @@
     }, []);
   }
 
+  /* 17/11/2026: o anúncio da Black já diz a loja no fim do utm_content (c06_barra, c07_sf).
+     A agenda recebe essa loja e a cliente cai direto nos horários. Sem esse final, não inventa loja. */
+  function lojaDoAnuncio(utmContent) {
+    var m = /_(barra|sf)$/i.exec(String(utmContent || ''));
+    if (!m) return '';
+    return m[1].toLowerCase() === 'sf' ? 'sf' : 'barra';
+  }
+
   /* A agenda que já existe, com a ocasião e o modelo, e a origem que chegou na visita. */
   function linkDaAgenda(porta, codigo, busca) {
     var cfg = PORTAS[porta];
     var q = new URLSearchParams();
+    var origem = new URLSearchParams(busca || '');
     q.set('ocasiao', cfg.ocasiao);
     if (/^[A-Z0-9][A-Z0-9-]{0,39}$/.test(String(codigo || ''))) q.set('modelo', codigo);
+    var loja = lojaDoAnuncio(origem.get('utm_content'));
+    if (loja) q.set('loja', loja);
     q.set('ui_source', 'catalog_product_schedule');
-    var origem = new URLSearchParams(busca || '');
     CHAVES_ORIGEM.forEach(function (k) {
       var v = origem.get(k);
       if (v && v.length <= 250) q.set(k, v);
@@ -242,6 +252,7 @@
     reais: reais,
     diaMes: diaMes,
     nomeDoModelo: nomeDoModelo,
+    lojaDoAnuncio: lojaDoAnuncio,
     miniatura: miniatura,
     modelos: modelos,
     linkDaAgenda: linkDaAgenda
