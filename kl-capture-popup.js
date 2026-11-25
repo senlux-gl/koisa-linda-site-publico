@@ -30,8 +30,9 @@
     function otherDialog() {
       return Array.prototype.some.call(doc.querySelectorAll('dialog'), function (d) { return d !== dialog && d.open; });
     }
-    function open(manual) {
+    function open(manual, trigger) {
       if (dialog.open || otherDialog()) return false;
+      hideTeaser();
       if (!manual && (seen() || (options.isSuppressed && options.isSuppressed()) || doc.visibilityState === 'hidden' || /^(INPUT|TEXTAREA|SELECT)$/.test((doc.activeElement || {}).tagName))) return false;
       previousFocus = doc.activeElement;
       previousScroll = {left:win.scrollX || 0,top:win.scrollY || 0,behavior:'instant'};
@@ -50,7 +51,7 @@
       win.__klCapturePopupSeen = true;
       try { win.sessionStorage.setItem(SESSION_KEY, 'shown'); } catch (_) {}
       close.focus({preventScroll:true});
-      if (options.onOpen) options.onOpen(manual ? 'manual' : 'page_open');
+      if (options.onOpen) options.onOpen(trigger || (manual ? 'manual' : 'page_open'));
       return true;
     }
     function restore() {
@@ -69,16 +70,72 @@
     close.addEventListener('click', dismiss);
     dialog.addEventListener('cancel', function (ev) { ev.preventDefault(); dismiss(); });
     dialog.addEventListener('click', function (ev) { if (ev.target === dialog) dismiss(); });
+    /* 25/11/2026: o convite não cobre mais a página ao abrir (476 de 528 fechavam).
+     * Um cartão pequeno sobe no rodapé depois de interesse real: 40% da página lida
+     * ou 12 segundos com a aba à vista. O formulário completo só abre no toque. */
+    var teaser = null, armed = false, timer = null;
+    function hideTeaser() {
+      if (!teaser) return;
+      teaser.classList.remove('kl-capture-teaser-on');
+      doc.body.classList.remove('kl-capture-teaser-open');
+    }
+    function showTeaser() {
+      if (teaser || dialog.open || otherDialog() || seen() || (options.isSuppressed && options.isSuppressed()) || doc.visibilityState === 'hidden') return false;
+      teaser = doc.createElement('aside');
+      teaser.setAttribute('class', 'kl-capture-teaser');
+      teaser.setAttribute('aria-label', 'Convite para receber modelos no WhatsApp');
+      function el(tag, cls, text, label) {
+        var n = doc.createElement(tag);
+        n.setAttribute('class', cls);
+        if (tag === 'button') n.setAttribute('type', 'button');
+        if (label) n.setAttribute('aria-label', label);
+        if (text) n.textContent = text;
+        teaser.appendChild(n);
+        return n;
+      }
+      el('p', 'kl-capture-teaser-t', 'Quer ver mais modelos?');
+      el('p', 'kl-capture-teaser-s', 'A loja manda pelo seu WhatsApp.');
+      var go = el('button', 'kl-capture-teaser-go', 'Receber modelos');
+      var x = el('button', 'kl-capture-teaser-x', '\u00d7', 'Fechar convite');
+      doc.body.appendChild(teaser);
+      win.__klCapturePopupSeen = true;
+      try { win.sessionStorage.setItem(SESSION_KEY, 'shown'); } catch (_) {}
+      go.addEventListener('click', function () { open(true, 'teaser'); });
+      x.addEventListener('click', function () {
+        hideTeaser();
+        if (options.onTeaserDismiss) options.onTeaserDismiss();
+      });
+      win.setTimeout(function () {
+        teaser.classList.add('kl-capture-teaser-on');
+        doc.body.classList.add('kl-capture-teaser-open');
+      }, 40);
+      if (options.onTeaser) options.onTeaser();
+      return true;
+    }
     function tryAutomatic() {
       // Catalog selection must not be interrupted; explicit capture links still work.
       if (/\/catalogo(?:\/|\.html|$)/.test(win.location && win.location.pathname || '')) return false;
-      return open(false);
+      return showTeaser();
     }
-    function deferAttempt() { (win.requestAnimationFrame || win.setTimeout).call(win, tryAutomatic); }
-    doc.addEventListener('visibilitychange', deferAttempt);
-    doc.addEventListener('close', function (ev) { if (ev.target !== dialog) deferAttempt(); }, true);
-    deferAttempt();
-    return {open:open,close:dismiss,isOpen:function(){return dialog.open;},tryAutomatic:tryAutomatic};
+    function onScroll() {
+      var d = doc.documentElement || {}, total = (d.scrollHeight || 0) - (win.innerHeight || 0);
+      if (total > 0 && (win.scrollY || 0) / total >= 0.4) fire();
+    }
+    function fire() {
+      if (!armed) return;
+      armed = false;
+      if (timer && win.clearTimeout) win.clearTimeout(timer);
+      if (win.removeEventListener) win.removeEventListener('scroll', onScroll);
+      tryAutomatic();
+    }
+    function arm() {
+      if (armed || teaser || seen()) return;
+      armed = true;
+      if (win.addEventListener) win.addEventListener('scroll', onScroll, {passive:true});
+      timer = win.setTimeout(fire, 12000);
+    }
+    arm();
+    return {open:open,close:dismiss,isOpen:function(){return dialog.open;},tryAutomatic:tryAutomatic,isTeaserOn:function(){return Boolean(teaser && teaser.classList.contains('kl-capture-teaser-on'));}};
   }
   return {mount:mount};
 }));

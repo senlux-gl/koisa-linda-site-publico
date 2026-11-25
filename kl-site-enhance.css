@@ -44,3 +44,23 @@ header .menu a{white-space:nowrap}
 .kl-lara-web.is-open .kl-lara-launch{display:none}body.kl-lara-open .kl-sticky-cta{display:none!important}
 .kl-lara-web.kl-lara-home-delayed:not(.is-on):not(.is-open){display:none!important}
 @media(max-width:720px){.kl-lara-web{left:auto;right:12px;bottom:88px;width:auto}.kl-lara-web.is-open{left:10px;right:10px;bottom:10px;width:auto}.kl-lara-launch{margin-left:auto;padding:10px 14px;min-height:48px;display:grid;text-align:left;gap:2px;border-color:rgba(244,229,196,.7);box-shadow:0 14px 34px rgba(90,36,43,.22)}.kl-lara-launch span{display:block;font-size:10px;letter-spacing:1.65px;text-transform:uppercase;opacity:.86}.kl-lara-launch b{font-size:13.5px;letter-spacing:.75px;text-transform:uppercase;white-space:nowrap}.kl-lara-launch b::before,.kl-lara-launch b::after{content:none}.kl-lara-panel{left:0;right:0;bottom:0;width:auto;border-radius:20px;max-height:calc(100dvh - 28px)}.kl-lara-options{display:grid;grid-template-columns:1fr 1fr;gap:7px}.kl-lara-options button{min-height:44px;padding:8px 6px;font-size:10.5px}.kl-lara-head b{font-size:20px}}
+
+/* Lara de verdade na janela (25/11/2026): só aparece quando kl-lara-chat.js liga. */
+.kl-lara-chat .kl-lara-panel{display:flex;flex-direction:column;max-height:min(560px,calc(100dvh - 140px))}
+.kl-lara-chat .kl-lara-body{display:flex;flex-direction:column;gap:10px;min-height:0;flex:1}
+.kl-lc-log{display:flex;flex-direction:column;gap:8px;overflow-y:auto;min-height:120px;max-height:330px;padding:2px 2px 4px;overscroll-behavior:contain}
+.kl-lc-msg{margin:0;max-width:86%;padding:10px 13px;border-radius:14px;font:15.5px/1.45 'Arapey',Georgia,serif;white-space:pre-line}
+.kl-lc-lara{align-self:flex-start;background:#f4ece0;color:#2c2326;border-bottom-left-radius:4px}
+.kl-lc-user{align-self:flex-end;background:#722f37;color:#fbf7ef;border-bottom-right-radius:4px}
+.kl-lc-wait{opacity:.6;letter-spacing:.2em}
+.kl-lc-actions{display:flex;flex-wrap:wrap;gap:8px;align-self:flex-start}
+.kl-lc-actions a{font:12px/1 'Questrial',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#722f37;border:1px solid #d9c9b4;border-radius:999px;padding:11px 14px;text-decoration:none;background:#fbf7ef}
+.kl-lc-chips{display:flex;flex-wrap:wrap;gap:8px}
+.kl-lc-chips[hidden]{display:none}
+.kl-lc-chips button{font:13px/1 'Questrial',sans-serif;color:#722f37;background:transparent;border:1px solid #d9c9b4;border-radius:999px;padding:11px 14px;cursor:pointer;min-height:44px}
+.kl-lc-form{display:flex;gap:8px;border-top:1px solid #eadfce;padding-top:10px}
+.kl-lc-form input[type=text]:not(.kl-lc-trap){flex:1;min-width:0;min-height:46px;border:1px solid #d9c9b4;border-radius:999px;padding:0 16px;font:16px/1.2 'Questrial',sans-serif;background:#fffdf9;color:#2c2326}
+.kl-lc-form button{min-height:46px;border:0;border-radius:999px;padding:0 18px;background:#722f37;color:#fbf7ef;font:12px/1 'Questrial',sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.kl-lc-form button:disabled{opacity:.6}
+.kl-lc-trap{position:absolute!important;left:-10000px;width:1px;height:1px;opacity:0}
+.kl-lc-note{margin:0;font:11.5px/1.4 'Questrial',sans-serif;color:#7a6a6c}

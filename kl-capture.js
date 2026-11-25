@@ -173,6 +173,8 @@
       popup = win.KLCapturePopup.mount(win, section, {
         isSuppressed:function(){return busy || Number(currentState().until) > Date.now();},
         onOpen:showForm,
+        onTeaser:function(){event('capture_teaser_view');},
+        onTeaserDismiss:function(){event('capture_invite_dismiss',{capture_surface:'teaser'});},
         onClose:function(){
           form.hidden=true;open.hidden=false;close.hidden=true;open.setAttribute('aria-expanded','false');
           event('capture_invite_dismiss',{capture_surface:'popup'});syncFloating();
