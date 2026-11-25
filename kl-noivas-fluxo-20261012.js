@@ -127,7 +127,8 @@
     enviando: false,
     lead_id: '',
     leadSalvo: false,
-    lead: { nome: '', telefone: '' }
+    lead: { nome: '', telefone: '' },
+    referencia: ''
   };
 
   /* ── utilidades ─────────────────────────────────────────────────────────── */
@@ -275,7 +276,13 @@
       var o = opcao(p.id, r[p.id]);
       if (o) partes.push(rotulos[p.id] + ': ' + o[2]);
     });
-    return partes.join(' · ').slice(0, 400);
+    var texto = partes.join(' · ');
+    var ctx = window.KLScheduleContext;
+    if (estado.referencia) {
+      return ctx && ctx.orderNotes ? ctx.orderNotes(estado.referencia, texto)
+        : ('Referência do catálogo: ' + estado.referencia + '.\n' + texto).slice(0, 400);
+    }
+    return texto.slice(0, 400);
   }
 
   function leadPayload() {
@@ -478,7 +485,8 @@
   }
   function linkAgenda(origemUi) {
     var l = loja();
-    return '/agendar/?ocasiao=' + OCASIAO + (l ? '&un=' + l.un : '') + '&ui_source=' + origemUi;
+    return '/agendar/?ocasiao=' + OCASIAO + (l ? '&un=' + l.un : '') + '&ui_source=' + origemUi +
+      (estado.referencia ? '&modelo=' + encodeURIComponent(estado.referencia) : '');
   }
   function linkWhats(texto) {
     var l = loja() || LOJAS.saofrancisco;
@@ -493,6 +501,7 @@
       if (d) t += ' A festa é ' + d[2] + '.';
       if (v) t += ' Interesse: ' + v[2] + '.';
       if (r.estilo) t += ' Estilo: ' + nomeEstilo() + '.';
+      if (estado.referencia) t += ' Vi o vestido ' + estado.referencia + '.';
       return t;
     }
     var c = opcao('caminho', r.caminho);
@@ -500,6 +509,7 @@
     if (d) txt += ' Meu casamento é ' + d[2] + '.';
     if (c) txt += ' Quero ' + c[2] + '.';
     if (r.estilo) txt += ' Gosto do estilo ' + nomeEstilo() + '.';
+    if (estado.referencia) txt += ' Vi o vestido ' + estado.referencia + '.';
     return txt;
   }
 
@@ -878,6 +888,60 @@
     });
   });
 
+  /* 25/11/2026 · O link do anúncio pode trazer o vestido (?modelo=CÓDIGO) e a loja (?un=barra|sf).
+   * O vestido só vale se o código existe no catálogo daquela ocasião; aparece em cima das perguntas
+   * e vai anotado no pedido como "Referência do catálogo", o mesmo campo que o /agendar/ já usa.
+   * A loja só vem marcada: a pessoa ainda confirma ou troca na pergunta 3. Sem os dois parâmetros,
+   * a página fica como estava. */
+  var UN_DO_LINK = { barra: 'barra', sf: 'saofrancisco', saofrancisco: 'saofrancisco' }[String(qsParam('un')).toLowerCase()] || '';
+  if (UN_DO_LINK && LOJAS[UN_DO_LINK]) estado.respostas.loja = UN_DO_LINK;
+
+  function cartaoDoModelo(codigo, produto) {
+    if (!codigo || raiz.parentNode.querySelector('[data-nf-modelo]')) return;
+    var foto = produto && /^https:\/\//.test(String(produto.u || '')) ? String(produto.u) : '';
+    var mini = foto && /\.jpg$/i.test(foto.split('?')[0]) ? foto.split('?')[0].replace(/\.jpg$/i, '-thumb.jpg') : foto;
+    var div = document.createElement('div');
+    div.className = 'nf-modelo';
+    div.setAttribute('data-nf-modelo', codigo);
+    div.innerHTML = (mini ? '<img src="' + esc(mini) + '" alt="Vestido referência ' + esc(codigo) + '" width="120" height="160" loading="eager" decoding="async">' : '') +
+      '<div><p class="nf-modelo-rotulo">O vestido que você viu</p><p class="nf-modelo-ref">Ref. ' + esc(codigo) + '</p>' +
+      '<p class="nf-modelo-nota">Vai anotado na sua prova. A equipe confere a disponibilidade para a sua data.</p></div>';
+    raiz.parentNode.insertBefore(div, raiz);
+  }
+  function lerModeloDoLink() {
+    var bruto = qsParam('modelo');
+    if (!bruto) return;
+    var resolver = function () {
+      var ctx = window.KLScheduleContext, dados = window.KL_DATA;
+      if (!ctx || !Array.isArray(dados)) return;
+      var codigo = ctx.resolveReference(bruto, OCASIAO, dados);
+      if (!codigo) return;
+      estado.referencia = codigo;
+      var produto = dados.filter(function (x) { return x && x.k === codigo; })[0];
+      cartaoDoModelo(codigo, produto);
+      trackSchedule('KL_Flow_Model_From_Link', { product_code: codigo, has_model_reference: 'yes' });
+      // Os botões "Marcar minha prova" da página também levam o modelo para o /agendar/.
+      document.querySelectorAll('a').forEach(function (a) {
+        var h = a.getAttribute('href') || '';
+        if (/^(https:\/\/koisalinda\.com\.br)?\/agendar\//.test(h) && h.indexOf('modelo=') < 0) a.setAttribute('href', h + (h.indexOf('?') < 0 ? '?' : '&') + 'modelo=' + encodeURIComponent(codigo));
+      });
+      if (estado.passo < 4) desenharPergunta(estado.passo);
+    };
+    if (window.KLScheduleContext && Array.isArray(window.KL_DATA)) { resolver(); return; }
+    var faltam = [];
+    if (!window.KLScheduleContext) faltam.push('/kl-schedule-context.js?v=20260906agenda');
+    if (!Array.isArray(window.KL_DATA)) faltam.push('/kl-catalog-data.js');
+    var restantes = faltam.length;
+    faltam.forEach(function (src) {
+      var sc = document.createElement('script');
+      sc.src = src; sc.async = true;
+      sc.onload = sc.onerror = function () { restantes -= 1; if (!restantes) resolver(); };
+      (document.head || document.body).appendChild(sc);
+    });
+  }
+
   raiz.classList.add('nf-pronto-js');
   desenharPergunta(0);
+  lerModeloDoLink();
+  if (UN_DO_LINK) buscarAgendaDaLoja();
 }());

@@ -253,3 +253,11 @@ footer .nf-rodape-links a{color:var(--nf-baunilha);min-height:44px;display:inlin
 @media(min-width:961px){.hero.nf-hero .nf-oferta strong{white-space:nowrap}}
 @media(max-width:600px){.nf-oferta-longa{display:none}.nf-oferta-curta{display:inline}}
 .nf-oferta strong span{font-family:var(--nf-sans);font-size:inherit;opacity:1}
+/* 25/11/2026 · O vestido do anúncio (?modelo=), em cima das perguntas. Só aparece com código válido. */
+.nf-modelo{display:flex;gap:16px;align-items:center;background:var(--nf-papel);border:1px solid var(--nf-linha);border-left:2px solid var(--nf-ouro);border-radius:10px;padding:12px 16px 12px 12px;margin:0 0 14px;box-shadow:var(--nf-sombra)}
+.nf-modelo img{flex:0 0 auto;width:84px;height:112px;object-fit:cover;object-position:50% 20%;border-radius:4px;background:var(--nf-creme)}
+.nf-modelo p{margin:0}
+.nf-modelo-rotulo{font-family:var(--nf-sans);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--nf-ruby)}
+.nf-modelo-ref{font-family:var(--nf-serif);font-style:italic;font-size:22px;line-height:1.2;color:var(--nf-tinta);margin:4px 0 6px!important}
+.nf-modelo-nota{font-size:15.5px;line-height:1.45;color:var(--nf-suave)}
+@media (min-width:860px){.nf-modelo img{width:96px;height:128px}}
